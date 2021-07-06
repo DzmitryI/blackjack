@@ -9,6 +9,9 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -35,7 +38,7 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
+    'react/jsx-filename-extension': [1, {extensions: ['.tsx', '.ts']}],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'import/extensions': 'off',
@@ -46,6 +49,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    'max-len': ['warn', { code: 120 }],
+    'max-len': ['warn', {code: 120}],
   },
 };

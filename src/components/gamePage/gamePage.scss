@@ -1,0 +1,35 @@
+@import "src/styles/mixins";
+
+.game-wrap {
+	display: grid;
+	grid-template-rows: 1fr 80px;
+	grid-template-columns: 1fr;
+	color: white;
+	.game-element {
+		height: 100%;
+	}
+	.game-footer {
+		height: 100%;
+		border-top: 1px solid black;
+		display: grid;
+		grid-template-rows: 1fr 25px;
+		grid-template-columns: 1fr;
+		.desc-wrap {
+			.desc-block {
+				width: 100px;
+				margin-right: 10px;
+				@include flexPosition(space-between, center)
+			}
+		}
+		.result-wrap{
+			.result-block {
+				width: 80px;
+				height: 100%;
+				margin-right: 10px;
+				@include flexPosition(space-between, center)
+			}
+			@include flexPosition();
+			border-top: 1px solid black;
+		}
+	}
+}

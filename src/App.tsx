@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './app.scss';
 import { useSelector } from 'react-redux';
 import { RootReducer } from './redux/reducers/rootReducer';
 import PreviewPage from './components/previewPage';
