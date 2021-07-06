@@ -1,10 +1,16 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { useSelector } from 'react-redux';
+import { RootReducer } from './redux/reducers/rootReducer';
+import PreviewPage from './components/previewPage';
+import GamePage from './components/gamePage';
 
 function App() {
+  const { isPreview } = useSelector((state: RootReducer) => state.casino);
+
   return (
-    <div className="App">
-      <h1>blackjack</h1>
+    <div className="app">
+      {isPreview ? (<PreviewPage />) : (<GamePage />)}
     </div>
   );
 }
