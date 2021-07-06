@@ -23,6 +23,8 @@ code {
   width: 100vw;
   height: 100vh;
   background-image: url("./assets/images/beckground.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .main {
@@ -32,4 +34,5 @@ code {
   max-height: 1600px;
   height: 600px;
   border: 1px solid black;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }

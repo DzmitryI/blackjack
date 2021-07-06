@@ -15,21 +15,23 @@
 		grid-template-rows: 1fr 25px;
 		grid-template-columns: 1fr;
 		.desc-wrap {
+			background: radial-gradient(circle, #131313, #282d23);
 			.desc-block {
+				margin-left: 20px;
 				width: 100px;
-				margin-right: 10px;
 				@include flexPosition(space-between, center)
 			}
 		}
 		.result-wrap{
+			background: #131313;
+			@include flexPosition();
+			border-top: 2px solid rgba(0, 0, 0, 0.15);
 			.result-block {
 				width: 80px;
 				height: 100%;
-				margin-right: 10px;
+				margin-right: 20px;
 				@include flexPosition(space-between, center)
 			}
-			@include flexPosition();
-			border-top: 1px solid black;
 		}
 	}
 }
