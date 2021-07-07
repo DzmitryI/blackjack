@@ -4,7 +4,7 @@ import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
 
 const GamesFooter: FC = () => {
-  const { cash } = useSelector((state: RootReducer) => state.user);
+  const { cash, bet } = useSelector((state: RootReducer) => state.user);
   return (
     <section className="game-footer">
       <div className="desc-wrap">
@@ -24,7 +24,7 @@ const GamesFooter: FC = () => {
         </div>
         <div className="result-block">
           <span>Bet:</span>
-          <span>$0</span>
+          <span>{`$${bet}`}</span>
         </div>
         <div className="result-block">
           <span>Win:</span>
