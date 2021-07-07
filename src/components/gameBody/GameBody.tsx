@@ -3,13 +3,18 @@ import './gameBody.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { user } from '../../types/user';
+import { gameSession } from '../../types/gameSession';
 
 const GameBody: FC = () => {
   const { bet } = useSelector((state: RootReducer) => state.user);
+  const { deal } = useSelector((state: RootReducer) => state.gameSession);
   const dispatch = useDispatch();
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     console.log('deal');
-  }, []);
+    dispatch({
+      type: gameSession.CHANGE_DEAL,
+    });
+  }, [dispatch]);
   const onClickDecreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     console.log('decrease');
     dispatch({
@@ -32,7 +37,7 @@ const GameBody: FC = () => {
   return (
     <section className="game-body">
       <div className="dealer-block">
-        {bet > 0 && (
+        {deal && (
           <>
             <p className="dealer-count">count</p>
             <div className="dealer-card-wrap">
@@ -45,12 +50,11 @@ const GameBody: FC = () => {
         )}
       </div>
       <div className="user-block">
-        {bet === 0
-          ? (
-            <div className="deal-wrap">
-              <button type="button" onClick={onClickHandleDeal}>Deal</button>
-            </div>
-          )
+        {!deal ? (
+          <div className="deal-wrap">
+            <button type="button" onClick={onClickHandleDeal}>Deal</button>
+          </div>
+        )
           : (
             <>
               <p className="user-count">count</p>
