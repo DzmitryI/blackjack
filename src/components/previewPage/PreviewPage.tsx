@@ -5,12 +5,11 @@ import { madeDeck } from '../../redux/actions/casinoActions';
 
 const PreviewPage: FC = () => {
   const dispatch = useDispatch();
-  const { values, suits, deck } = useSelector((state: RootReducer) => state.casino);
+  const { values, suits } = useSelector((state: RootReducer) => state.casino);
   const onClickHandleStart: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch(madeDeck({ values, suits }));
   }, [dispatch]);
 
-  console.log(deck);
   return (
     <div className="main">
       <h1>blackjack</h1>

@@ -1,10 +1,8 @@
-import { types } from './actionTypes';
-import { Deck } from '../reducers/casinoReducer';
+import {
+  casino, Deck, MadeDeck, PayloadDeck,
+} from '../../types/casino';
 
-export type PayloadDeck = {values: string[], suits: string[]}
-type ItemDeck = {value: string, suit: string}
-
-export function madeDeck({ values, suits }: PayloadDeck): {type: types, payload: ItemDeck[]} {
+export function madeDeck({ values, suits }: PayloadDeck): MadeDeck {
   const deck: Deck = [];
   for (let i = 0; i < suits.length; i += 1) {
     for (let j = 0; j < values.length; j += 1) {
@@ -19,7 +17,7 @@ export function madeDeck({ values, suits }: PayloadDeck): {type: types, payload:
     deck[loc2] = tmp;
   }
   return {
-    type: types.MADE_DECK,
+    type: casino.MADE_DECK,
     payload: deck,
   };
 }

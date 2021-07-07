@@ -5,33 +5,4 @@
 	grid-template-rows: 1fr 80px;
 	grid-template-columns: 1fr;
 	color: white;
-	.game-element {
-		height: 100%;
-	}
-	.game-footer {
-		height: 100%;
-		border-top: 1px solid black;
-		display: grid;
-		grid-template-rows: 1fr 25px;
-		grid-template-columns: 1fr;
-		.desc-wrap {
-			background: radial-gradient(circle, #131313, #282d23);
-			.desc-block {
-				margin-left: 20px;
-				width: 100px;
-				@include flexPosition(space-between, center)
-			}
-		}
-		.result-wrap{
-			background: #131313;
-			@include flexPosition();
-			border-top: 2px solid rgba(0, 0, 0, 0.15);
-			.result-block {
-				width: 80px;
-				height: 100%;
-				margin-right: 20px;
-				@include flexPosition(space-between, center)
-			}
-		}
-	}
 }

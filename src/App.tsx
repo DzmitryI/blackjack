@@ -5,7 +5,7 @@ import { RootReducer } from './redux/reducers/rootReducer';
 import PreviewPage from './components/previewPage';
 import GamePage from './components/gamePage';
 
-function App() {
+const App = () => {
   const { isPreview } = useSelector((state: RootReducer) => state.casino);
 
   return (
@@ -13,6 +13,6 @@ function App() {
       {isPreview ? (<PreviewPage />) : (<GamePage />)}
     </div>
   );
-}
+};
 
 export default App;

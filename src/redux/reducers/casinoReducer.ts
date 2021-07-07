@@ -1,13 +1,4 @@
-import { types } from '../actions/actionTypes';
-
-export type Deck = { value: string, suit: string }[]
-
-type InitialState = {
-  suits: string[],
-  values: string[],
-  deck: Deck,
-  isPreview: boolean,
-}
+import { casino, InitialState, MadeDeck } from '../../types/casino';
 
 const initialState: InitialState = {
   suits: ['spades', 'diamonds', 'clubs', 'hearts'],
@@ -16,10 +7,10 @@ const initialState: InitialState = {
   isPreview: true,
 };
 
-export const casinoReducer = (state = initialState, action: any): InitialState => {
+export const casinoReducer = (state = initialState, action: MadeDeck): InitialState => {
   const { type, payload } = action;
   switch (type) {
-    case types.MADE_DECK:
+    case casino.MADE_DECK:
       return {
         ...state,
         deck: payload,
