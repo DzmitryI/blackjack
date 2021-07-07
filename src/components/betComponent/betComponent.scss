@@ -1,0 +1,14 @@
+@import "src/styles/mixins";
+
+.bet-block {
+	@include flexPosition();
+	height: 100%;
+	border: 1px solid black;
+	flex-direction: column;
+	.bet-count {
+		width: 45px;
+		height: 20px;
+		background: rgba(0,0,0, 0.30);
+		text-align: center;
+	}
+}

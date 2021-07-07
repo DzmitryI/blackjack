@@ -1,0 +1,27 @@
+@import "src/styles/mixins";
+
+.user-block {
+	@include flexPosition();
+	height: 100%;
+	border: 1px solid black;
+	flex-direction: column;
+	.deal-wrap {
+	}
+	.user-count {
+		width: 45px;
+		height: 25px;
+		background: black;
+		text-align: center;
+	}
+	.user-card-wrap {
+		@include flexPosition();
+		.user-card {
+			width: 75px;
+			height: 100px;
+			border: 1px solid black;
+			border-radius: 4px;
+			margin-right: 5px;
+		}
+	}
+}
+

@@ -1,7 +1,10 @@
 import { changeDeal, gameSession, InitialState } from '../../types/gameSession';
 
 const initialState: InitialState = {
-  deal: false,
+  dealStatus: false,
+  dealerPoints: 0,
+  userPoints: 0,
+
 };
 
 export const gameSessionReducer = (state = initialState, action: changeDeal): InitialState => {
@@ -10,7 +13,7 @@ export const gameSessionReducer = (state = initialState, action: changeDeal): In
     case gameSession.CHANGE_DEAL:
       return {
         ...state,
-        deal: !state.deal,
+        dealStatus: !state.dealStatus,
       };
     default:
       return state;

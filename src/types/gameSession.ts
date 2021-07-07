@@ -3,7 +3,9 @@ export enum gameSession {
 }
 
 export type InitialState = {
-  deal: boolean,
+  dealStatus: boolean,
+  dealerPoints: number,
+  userPoints: number,
 }
 
 export interface changeDeal {
