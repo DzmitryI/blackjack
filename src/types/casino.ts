@@ -5,6 +5,7 @@ export enum casino {
 export type InitialState = {
   suits: string[],
   values: string[],
+  chips: {value: number, color: string}[]
   deck: Deck,
   isPreview: boolean,
 }

@@ -3,10 +3,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { gameSession } from '../../types/gameSession';
 import './userComponent.scss';
+import Shirt from '../icons/Shirt';
+import {
+  Diamonds10,
+  Diamonds2,
+  Diamonds3,
+  Diamonds4,
+  Diamonds5,
+  Diamonds6,
+  Diamonds7,
+  Diamonds8,
+  Diamonds9,
+  DiamondsA,
+  DiamondsJ,
+  DiamondsK,
+  DiamondsQ,
+} from '../icons/diamonds';
+import { Clubs2, Clubs3, Clubs4 } from '../icons/clubs';
 
 const UserComponent: FC = () => {
   const { bet } = useSelector((state: RootReducer) => state.user);
-  const { dealStatus, dealerPoints, userPoints } = useSelector((state: RootReducer) => state.gameSession);
+  const { dealStatus, userPoints } = useSelector((state: RootReducer) => state.gameSession);
   const dispatch = useDispatch();
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
@@ -23,10 +40,10 @@ const UserComponent: FC = () => {
         <>
           <p className="user-count">{userPoints}</p>
           <div className="user-card-wrap">
-            <div className="user-card user-card1" />
-            <div className="user-card user-card2" />
-            <div className="user-card user-card3" />
-            <div className="user-card user-card4" />
+            <Shirt />
+            <Clubs2 />
+            <Clubs3 />
+            <Clubs4 />
           </div>
         </>
       )}

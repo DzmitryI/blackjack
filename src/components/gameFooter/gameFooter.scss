@@ -12,16 +12,29 @@
 		background: radial-gradient(circle, #131313, #282d23);
 		position: relative;
 		.chips-container {
+			@include flexPosition();
 			position: absolute;
 			top: -20px;
 			left: calc(50% - 130px);
-			.chip {
-				margin-left: 5px;
-				border-radius: 50%;
-				&:hover {
-					background: orange;
-					border: 2px solid orange;
+			.chip-block {
+				position: relative;
+				&:hover .chip{
+					border: 2px solid white;
 				}
+				.chip-title {
+					position: absolute;
+					top: 20%;
+					left: calc(50% - 11px);
+					width: 26px;
+					text-align: center;
+				}
+				.chip {
+					margin-left: 5px;
+					border-radius: 50%;
+				}
+			}
+			.active {
+				border: 2px solid white;
 			}
 		}
 		.info-block {

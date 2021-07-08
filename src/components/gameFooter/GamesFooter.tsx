@@ -2,15 +2,12 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
-import Chip1 from '../icons/Chip1';
-import Chip5 from '../icons/Chip5';
-import Chip10 from '../icons/Chip10';
-import Chip50 from '../icons/Chip50';
-import Chip100 from '../icons/Chip100';
-import Chip500 from '../icons/Chip500';
+import Chip from '../icons/Chip';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
+  const { chips } = useSelector((state: RootReducer) => state.casino);
+  console.log(chips);
   return (
     <section className="game-footer">
       <div className="desc-wrap">
@@ -25,12 +22,12 @@ const GamesFooter: FC = () => {
           </div>
         </div>
         <div className="chips-container">
-          <Chip1 width="40" height="40" />
-          <Chip5 width="40" height="40" />
-          <Chip10 width="40" height="40" />
-          <Chip50 width="40" height="40" />
-          <Chip100 width="40" height="40" />
-          <Chip500 width="40" height="40" />
+          {chips && chips.map((chip) => (
+            <div className="chip-block" key={chip.value}>
+              <Chip fill={chip.color} width="40" height="40" className="active" />
+              <span className="chip-title">{chip.value}</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className="result-wrap">

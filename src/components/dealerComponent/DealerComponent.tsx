@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './dealerComponent.scss';
+import Shirt from '../icons/Shirt';
+import Diamonds2 from '../icons/diamonds/Diamonds2';
 
 const DealerComponent: FC = () => {
   const { dealStatus, dealerPoints } = useSelector((state: RootReducer) => state.gameSession);
@@ -11,10 +13,12 @@ const DealerComponent: FC = () => {
       <>
         <p className="dealer-count">{dealerPoints}</p>
         <div className="dealer-card-wrap">
-          <div className="dealer-card dealer-card1" />
-          <div className="dealer-card dealer-card2" />
-          <div className="dealer-card dealer-card3" />
-          <div className="dealer-card dealer-card4" />
+          <Shirt width="66" height="99" />
+          <Diamonds2 width="66" height="99" />
+          {/* <div className="dealer-card dealer-card1" /> */}
+          {/* <div className="dealer-card dealer-card2" /> */}
+          {/* <div className="dealer-card dealer-card3" /> */}
+          {/* <div className="dealer-card dealer-card4" /> */}
         </div>
       </>
       )}
