@@ -7,11 +7,33 @@
 	grid-template-rows: 1fr 25px;
 	grid-template-columns: 1fr;
 	.desc-wrap {
+		//display: grid;
+		//grid-template-columns: 100px;
 		background: radial-gradient(circle, #131313, #282d23);
-		.desc-block {
-			margin-left: 20px;
-			width: 100px;
-			@include flexPosition(space-between, center)
+		position: relative;
+		.chips-container {
+			position: absolute;
+			top: -20px;
+			left: calc(50% - 130px);
+			.chip {
+				margin-left: 5px;
+				border-radius: 50%;
+				&:hover {
+					background: orange;
+					border: 2px solid orange;
+				}
+			}
+		}
+		.info-block {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			.desc-block {
+				margin-left: 20px;
+				width: 100px;
+				@include flexPosition(space-between, center)
+			}
 		}
 	}
 	.result-wrap{
