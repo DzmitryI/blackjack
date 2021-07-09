@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
 import Chip from '../icons/Chip';
+import BtnPrev from '../icons/BtnPrev';
+import BtnNext from '../icons/BtnNext';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
@@ -21,6 +23,7 @@ const GamesFooter: FC = () => {
             <span>$500.00</span>
           </div>
         </div>
+        <div className="btn-prev-wrap"><BtnPrev /></div>
         <div className="chips-container">
           {chips && chips.map((chip) => (
             <div className="chip-block" key={chip.value}>
@@ -29,6 +32,7 @@ const GamesFooter: FC = () => {
             </div>
           ))}
         </div>
+        <div className="btn-next-wrap"><BtnNext /></div>
       </div>
       <div className="result-wrap">
         <div className="result-block">

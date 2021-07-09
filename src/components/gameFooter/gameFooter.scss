@@ -7,19 +7,47 @@
 	grid-template-rows: 1fr 25px;
 	grid-template-columns: 1fr;
 	.desc-wrap {
-		//display: grid;
-		//grid-template-columns: 100px;
+		display: grid;
+		grid-template-columns: 130px 1fr 1fr 1fr;
+		align-items: center;
 		background: radial-gradient(circle, #131313, #282d23);
 		position: relative;
+		.info-block {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			.desc-block {
+				margin-left: 20px;
+				width: 100px;
+				@include flexPosition(space-between, center)
+			}
+		}
+		.btn-prev-wrap,
+		.btn-next-wrap {
+			width: 100%;
+			svg {
+				transition: all 0.5s ease-in-out;
+				&:hover {
+					transform: scale(1.1, 1.1);
+				}
+			}
+		}
+		.btn-prev-wrap {
+			@include flexPosition(flex-end, center);
+		}
+		.btn-next-wrap {
+			@include flexPosition(flex-start, center);
+		}
 		.chips-container {
 			@include flexPosition();
-			position: absolute;
-			top: -20px;
-			left: calc(50% - 130px);
 			.chip-block {
 				position: relative;
 				&:hover .chip{
 					border: 2px solid white;
+				}
+				&:last-child {
+					margin-right: 5px;
 				}
 				.chip-title {
 					position: absolute;
@@ -35,17 +63,6 @@
 			}
 			.active {
 				border: 2px solid white;
-			}
-		}
-		.info-block {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			.desc-block {
-				margin-left: 20px;
-				width: 100px;
-				@include flexPosition(space-between, center)
 			}
 		}
 	}

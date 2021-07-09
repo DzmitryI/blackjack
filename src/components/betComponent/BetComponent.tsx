@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { user } from '../../types/user';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './betComponent.scss';
+import BtnBack from '../icons/BtnBack';
+import BtnClear from '../icons/BtnClear';
 
 const BetComponent: FC = () => {
   const dispatch = useDispatch();
@@ -26,9 +28,17 @@ const BetComponent: FC = () => {
   return (
     <div className="bet-block">
       <div>
-        {bet > 0 && !dealStatus && (<button type="button" onClick={onClickDecreaseBet}>decrease</button>)}
+        {bet > 0 && !dealStatus && (
+        <button type="button" onClick={onClickDecreaseBet} className="btn-decrease">
+          <BtnBack />
+        </button>
+        )}
         <button type="button" onClick={onClickIncreaseBet}>Bet</button>
-        {bet > 0 && !dealStatus && (<button type="button" onClick={onClickClearBet}>clear</button>)}
+        {bet > 0 && !dealStatus && (
+          <button type="button" onClick={onClickClearBet} className="btn-increase">
+            <BtnClear />
+          </button>
+        )}
       </div>
       <p className="bet-count">{bet}</p>
     </div>
