@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
 import Chip from '../icons/Chip';
-import BtnPrev from '../icons/BtnPrev';
-import BtnNext from '../icons/BtnNext';
+import IconPrev from '../icons/IconPrev';
+import IconNext from '../icons/IconNext';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
   const { chips } = useSelector((state: RootReducer) => state.casino);
-  console.log(chips);
   return (
     <section className="game-footer">
       <div className="desc-wrap">
@@ -23,7 +22,11 @@ const GamesFooter: FC = () => {
             <span>$500.00</span>
           </div>
         </div>
-        <div className="btn-prev-wrap"><BtnPrev /></div>
+        <div className="btn-prev-wrap">
+          <button type="button" className="btn-prev">
+            <IconPrev />
+          </button>
+        </div>
         <div className="chips-container">
           {chips && chips.map((chip) => (
             <div className="chip-block" key={chip.value}>
@@ -32,7 +35,11 @@ const GamesFooter: FC = () => {
             </div>
           ))}
         </div>
-        <div className="btn-next-wrap"><BtnNext /></div>
+        <div className="btn-next-wrap">
+          <button type="button" className="btn-next">
+            <IconNext />
+          </button>
+        </div>
       </div>
       <div className="result-wrap">
         <div className="result-block">

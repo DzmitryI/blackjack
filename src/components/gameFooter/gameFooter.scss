@@ -26,10 +26,17 @@
 		.btn-prev-wrap,
 		.btn-next-wrap {
 			width: 100%;
-			svg {
-				transition: all 0.5s ease-in-out;
+			.btn-prev,
+			.btn-next {
+				@include flexPosition();
+				padding: 0;
+				width: 30px;
+				height: 30px;
+				background: none;
+				border: none;
+				border-radius: 50px;
 				&:hover {
-					transform: scale(1.1, 1.1);
+					border: 2px solid white;
 				}
 			}
 		}

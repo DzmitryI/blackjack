@@ -5,19 +5,50 @@
 	height: 100%;
 	border: 1px solid black;
 	flex-direction: column;
-	.btn-decrease,
-	.btn-increase {
-		width: 30px;
-		height: 30px;
-		border: none;
-		background: none;
-		padding: 0;
-		border-radius: 50%;
+	.btn-container {
+		@include flexPosition();
+		.btn-decrease,
+		.btn-increase {
+			width: 30px;
+			height: 30px;
+			border: none;
+			background: none;
+			padding: 0;
+			border-radius: 50%;
+			&:hover {
+				box-shadow: 0 4px 30px rgba(255, 255, 255, 0.7);
+			}
+		}
+		.btn-bet {
+			@include flexPosition();
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			border: 3px solid white;
+			background: none;
+			margin: 0 7px;
+			padding: 0;
+			.chip-block {
+				position: relative;
+				.chip-title {
+					position: absolute;
+					width: 26px;
+					text-align: center;
+					color: white;
+					top: 31%;
+					left: calc(50% - 14px);
+					font-size: 17px;
+				}
+				.chip {
+					border-radius: 50%;
+				}
+			}
+		}
 	}
-	.bet-count {
-		width: 45px;
-		height: 20px;
-		background: rgba(0,0,0, 0.30);
-		text-align: center;
-	}
+	//.bet-count {
+	//	width: 45px;
+	//	height: 20px;
+	//	background: rgba(0,0,0, 0.30);
+	//	text-align: center;
+	//}
 }

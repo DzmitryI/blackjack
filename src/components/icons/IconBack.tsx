@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
-const BtnBack: FC<SvgProps> = ({
+const IconBack: FC<SvgProps> = ({
   width = '30', height = '30', fill, className,
 }) => (
   <svg width={width} height={height} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,4 +25,4 @@ const BtnBack: FC<SvgProps> = ({
 
 );
 
-export default BtnBack;
+export default IconBack;
