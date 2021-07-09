@@ -9,6 +9,7 @@
 		@include flexPosition();
 		.btn-decrease,
 		.btn-increase {
+			@include flexPosition();
 			width: 30px;
 			height: 30px;
 			border: none;
@@ -16,6 +17,7 @@
 			padding: 0;
 			border-radius: 50%;
 			&:hover {
+				border: 1px solid white;
 				box-shadow: 0 4px 30px rgba(255, 255, 255, 0.7);
 			}
 		}
@@ -28,6 +30,9 @@
 			background: none;
 			margin: 0 7px;
 			padding: 0;
+			&:hover {
+				box-shadow: 0 4px 30px rgba(255, 255, 255, 0.7);
+			}
 			.chip-block {
 				position: relative;
 				.chip-title {

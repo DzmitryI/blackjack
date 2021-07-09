@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { gameSession } from '../../types/gameSession';
 import './userComponent.scss';
-import Shirt from '../icons/Shirt';
+import IconShirt from '../icons/IconShirt';
 import {
   Diamonds10,
   Diamonds2,
@@ -20,6 +20,7 @@ import {
   DiamondsQ,
 } from '../icons/diamonds';
 import { Clubs2, Clubs3, Clubs4 } from '../icons/clubs';
+import IconDeal from '../icons/IconDeal';
 
 const UserComponent: FC = () => {
   const { bet } = useSelector((state: RootReducer) => state.user);
@@ -34,13 +35,20 @@ const UserComponent: FC = () => {
     <div className="user-block">
       {!dealStatus ? (
         <div className="dealStatus-wrap">
-          <button type="button" disabled={bet === 0} onClick={onClickHandleDeal}>Deal</button>
+          <button
+            type="button"
+            disabled={bet === 0}
+            onClick={onClickHandleDeal}
+            className="btn-deal"
+          >
+            <IconDeal fill={bet === 0 ? 'rgba(245, 84, 66, 0.3)' : 'black'} />
+          </button>
         </div>
       ) : (
         <>
           <p className="user-count">{userPoints}</p>
           <div className="user-card-wrap">
-            <Shirt />
+            <IconShirt />
             <Clubs2 />
             <Clubs3 />
             <Clubs4 />

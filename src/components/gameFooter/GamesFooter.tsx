@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
-import Chip from '../icons/Chip';
+import IconChip from '../icons/IconChip';
 import IconPrev from '../icons/IconPrev';
 import IconNext from '../icons/IconNext';
 
@@ -30,7 +30,7 @@ const GamesFooter: FC = () => {
         <div className="chips-container">
           {chips && chips.map((chip) => (
             <div className="chip-block" key={chip.value}>
-              <Chip fill={chip.color} width="40" height="40" className="active" />
+              <IconChip fill={chip.color} width="40" height="40" className="active" />
               <span className="chip-title">{chip.value}</span>
             </div>
           ))}

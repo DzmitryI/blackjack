@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
-const Chip: FC<SvgProps> = ({
+const IconChip: FC<SvgProps> = ({
   width = '66', height = '66', fill, className,
 }) => (
   <svg className={`chip ${className}`} width={width} height={height} viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,4 +23,4 @@ const Chip: FC<SvgProps> = ({
 
 );
 
-export default Chip;
+export default IconChip;

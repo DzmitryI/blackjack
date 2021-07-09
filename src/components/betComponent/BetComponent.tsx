@@ -5,7 +5,7 @@ import { RootReducer } from '../../redux/reducers/rootReducer';
 import './betComponent.scss';
 import IconBack from '../icons/IconBack';
 import IconClear from '../icons/IconClear';
-import Chip from '../icons/Chip';
+import IconChip from '../icons/IconChip';
 
 const BetComponent: FC = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ const BetComponent: FC = () => {
     });
   }, [dispatch]);
   return (
+
     <div className="bet-block">
       <div className="btn-container">
         {bet > 0 && !dealStatus && (
@@ -37,7 +38,7 @@ const BetComponent: FC = () => {
         <button type="button" onClick={onClickIncreaseBet} className="btn-bet">
           {bet > 0 && (
           <div className="chip-block">
-            <Chip fill="black" width="50" height="50" />
+            <IconChip fill="black" width="50" height="50" />
             <span className="chip-title">{bet}</span>
           </div>
           )}
