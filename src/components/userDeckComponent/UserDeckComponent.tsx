@@ -42,9 +42,22 @@ import {
   HeartK,
   HeartQ,
 } from '../icons/hearts';
+import {
+  Spider10,
+  Spider2,
+  Spider3,
+  Spider4,
+  Spider5,
+  Spider6,
+  Spider7,
+  Spider8,
+  Spider9, SpiderA,
+  SpiderJ, SpiderK, SpiderQ,
+} from '../icons/spaders';
 
 const UserDeckComponent: FC = () => {
   const { userDeck, userPoints } = useSelector((state: RootReducer) => state.gameSession);
+  console.log(userDeck, userPoints);
   return (
     <>
       <p className="user-count">{userPoints}</p>
@@ -78,58 +91,84 @@ const UserDeckComponent: FC = () => {
               return <DiamondK key={name} />;
             case 'diamondsA':
               return <DiamondA key={name} />;
-            case 'club2':
+            case 'clubs2':
               return <Club2 key={name} />;
-            case 'club3':
+            case 'clubs3':
               return <Club3 key={name} />;
-            case 'club4':
+            case 'clubs4':
               return <Club4 key={name} />;
-            case 'club5':
+            case 'clubs5':
               return <Club5 key={name} />;
-            case 'club6':
+            case 'clubs6':
               return <Club6 key={name} />;
-            case 'club7':
+            case 'clubs7':
               return <Club7 key={name} />;
-            case 'club8':
+            case 'clubs8':
               return <Club8 key={name} />;
-            case 'club9':
+            case 'clubs9':
               return <Club9 key={name} />;
-            case 'club10':
+            case 'clubs10':
               return <Club10 key={name} />;
-            case 'clubJ':
+            case 'clubsJ':
               return <ClubJ key={name} />;
-            case 'clubQ':
+            case 'clubsQ':
               return <ClubQ key={name} />;
-            case 'clubK':
+            case 'clubsK':
               return <ClubK key={name} />;
-            case 'clubA':
+            case 'clubsA':
               return <ClubA key={name} />;
-            case 'heart2':
+            case 'hearts2':
               return <Heart2 key={name} />;
-            case 'heart3':
+            case 'hearts3':
               return <Heart3 key={name} />;
-            case 'heart4':
+            case 'hearts4':
               return <Heart4 key={name} />;
-            case 'heart5':
+            case 'hearts5':
               return <Heart5 key={name} />;
-            case 'heart6':
+            case 'hearts6':
               return <Heart6 key={name} />;
-            case 'heart7':
+            case 'hearts7':
               return <Heart7 key={name} />;
-            case 'heart8':
+            case 'hearts8':
               return <Heart8 key={name} />;
-            case 'heart9':
+            case 'hearts9':
               return <Heart9 key={name} />;
-            case 'heart10':
+            case 'hearts10':
               return <Heart10 key={name} />;
-            case 'heartJ':
+            case 'heartsJ':
               return <HeartJ key={name} />;
-            case 'heartQ':
+            case 'heartsQ':
               return <HeartQ key={name} />;
-            case 'heartK':
+            case 'heartsK':
               return <HeartK key={name} />;
-            case 'heartA':
+            case 'heartsA':
               return <HeartA key={name} />;
+            case 'spiders2':
+              return <Spider2 key={name} />;
+            case 'spiders3':
+              return <Spider3 key={name} />;
+            case 'spiders4':
+              return <Spider4 key={name} />;
+            case 'spiders5':
+              return <Spider5 key={name} />;
+            case 'spiders6':
+              return <Spider6 key={name} />;
+            case 'spiders7':
+              return <Spider7 key={name} />;
+            case 'spiders8':
+              return <Spider8 key={name} />;
+            case 'spiders9':
+              return <Spider9 key={name} />;
+            case 'spiders10':
+              return <Spider10 key={name} />;
+            case 'spidersJ':
+              return <SpiderJ key={name} />;
+            case 'spidersQ':
+              return <SpiderQ key={name} />;
+            case 'spidersK':
+              return <SpiderK key={name} />;
+            case 'spidersA':
+              return <SpiderA key={name} />;
             default:
               return null;
           }
