@@ -13,6 +13,8 @@ const initialState: InitialState = {
   ],
   deck: [],
   isPreview: true,
+  minBet: 1,
+  maxBet: 500,
 };
 
 export const casinoReducer = (state = initialState, action: MadeDeck): InitialState => {

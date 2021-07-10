@@ -4,7 +4,7 @@ const initialState: InitialState = {
   dealStatus: false,
   dealerPoints: 0,
   userPoints: 0,
-  chosenBet: 0,
+  chosenBet: 1,
 
 };
 

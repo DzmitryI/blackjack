@@ -1,26 +1,41 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import IconPrev from '../icons/IconPrev';
 import IconChip from '../icons/IconChip';
 import IconNext from '../icons/IconNext';
 import { RootReducer } from '../../redux/reducers/rootReducer';
+import { GameSessionTypes } from '../../types/gameSession';
+import { changeChipSize } from '../helpers';
 import './chipsComponent.scss';
 
 const ChipsComponent: FC = () => {
+  const dispatch = useDispatch();
   const { chips } = useSelector((state: RootReducer) => state.casino);
   const { chosenBet } = useSelector((state: RootReducer) => state.gameSession);
+
   const onclickPrevBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    // dispatch({
-    //   type: user.CLEAR_BET,
-    // });
-    console.log('click');
-  }, []);
+    const value = changeChipSize(chips, chosenBet);
+    dispatch({
+      type: GameSessionTypes.CHANGE_SIZE_BET,
+      payload: value,
+    });
+  }, [dispatch, chosenBet]);
+
   const onclickNextBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    // dispatch({
-    //   type: user.CLEAR_BET,
-    // });
-    console.log('click');
-  }, []);
+    const value = changeChipSize(chips, chosenBet);
+    dispatch({
+      type: GameSessionTypes.CHANGE_SIZE_BET,
+      payload: value,
+    });
+  }, [dispatch, chosenBet]);
+
+  const onClickChip: MouseEventHandler<HTMLButtonElement> = useCallback(({ currentTarget }) => {
+    dispatch({
+      type: GameSessionTypes.CHANGE_SIZE_BET,
+      payload: +currentTarget.id,
+    });
+  }, [dispatch]);
+
   return (
     <>
       <div className="btn-prev-wrap">
@@ -34,7 +49,13 @@ const ChipsComponent: FC = () => {
       </div>
       <div className="chips-container">
         {chips && chips.map((chip) => (
-          <div className="chip-block" key={chip.value}>
+          <button
+            key={chip.value}
+            id={`${chip.value}`}
+            type="button"
+            className="chip-block"
+            onClick={onClickChip}
+          >
             <IconChip
               fill={chip.color}
               width="40"
@@ -42,7 +63,7 @@ const ChipsComponent: FC = () => {
               className={chip.value === chosenBet ? 'active' : ''}
             />
             <span className="chip-title">{chip.value}</span>
-          </div>
+          </button>
         ))}
       </div>
       <div className="btn-next-wrap">

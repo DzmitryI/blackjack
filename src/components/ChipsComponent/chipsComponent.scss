@@ -26,26 +26,37 @@
 .chips-container {
 	@include flexPosition();
 	.chip-block {
+		@include flexPosition();
+		padding: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: none;
+		border: none;
 		position: relative;
-		&:hover .chip{
+		margin-left: 5px;
+		&:hover .chip {
 			border: 2px solid white;
 		}
 		&:last-child {
 			margin-right: 5px;
 		}
 		.chip-title {
+			@include flexPosition();
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
 			position: absolute;
-			top: 20%;
-			left: calc(50% - 11px);
-			width: 26px;
-			text-align: center;
+			top: 0;
+			left: 0;
+			color: white;
 		}
 		.chip {
-			margin-left: 5px;
 			border-radius: 50%;
 		}
 	}
 	.active {
 		border: 2px solid white;
+		box-shadow: 0 4px 30px rgba(255, 255, 255, 0.7);
 	}
 }
