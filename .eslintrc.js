@@ -49,7 +49,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    'max-len': ['warn', { code: 120 }],
+    'max-len': ['warn', { code: 120, ignoreStrings: true, ignoreTemplateLiterals: true }],
     'react/prop-types': 'off',
   },
 };

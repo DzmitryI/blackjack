@@ -27,7 +27,6 @@ const BetComponent: FC = () => {
     });
   }, [dispatch]);
   return (
-
     <div className="bet-block">
       <div className="btn-container">
         {bet > 0 && !dealStatus && (

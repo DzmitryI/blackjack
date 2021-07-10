@@ -1,7 +1,7 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import { gameSession } from '../../types/gameSession';
+import { GameSessionTypes } from '../../types/gameSession';
 import './userComponent.scss';
 import IconShirt from '../icons/IconShirt';
 import {
@@ -28,7 +28,7 @@ const UserComponent: FC = () => {
   const dispatch = useDispatch();
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
-      type: gameSession.CHANGE_DEAL,
+      type: GameSessionTypes.CHANGE_DEAL,
     });
   }, [dispatch]);
   return (

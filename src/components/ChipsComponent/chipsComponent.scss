@@ -1,0 +1,51 @@
+@import "src/styles/mixins";
+
+.btn-prev-wrap,
+.btn-next-wrap {
+	width: 100%;
+	.btn-prev,
+	.btn-next {
+		@include flexPosition();
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		background: none;
+		border: none;
+		border-radius: 50px;
+		&:hover {
+			border: 2px solid white;
+		}
+	}
+}
+.btn-prev-wrap {
+	@include flexPosition(flex-end, center);
+}
+.btn-next-wrap {
+	@include flexPosition(flex-start, center);
+}
+.chips-container {
+	@include flexPosition();
+	.chip-block {
+		position: relative;
+		&:hover .chip{
+			border: 2px solid white;
+		}
+		&:last-child {
+			margin-right: 5px;
+		}
+		.chip-title {
+			position: absolute;
+			top: 20%;
+			left: calc(50% - 11px);
+			width: 26px;
+			text-align: center;
+		}
+		.chip {
+			margin-left: 5px;
+			border-radius: 50%;
+		}
+	}
+	.active {
+		border: 2px solid white;
+	}
+}

@@ -1,0 +1,13 @@
+@import "src/styles/mixins";
+
+.info-block {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	.desc-block {
+		margin-left: 20px;
+		width: 100px;
+		@include flexPosition(space-between, center)
+	}
+}

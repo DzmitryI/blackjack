@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
-const IconPrev: FC<SvgProps> = ({ width = '30', height = '30', fill = 'white' }) => (
+const IconPrev: FC<SvgProps> = ({ width = '20', height = '20', fill = 'white' }) => (
   <svg width={width} height={height} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="btn-prev" clipPath="url(#clip0)">
       <g id="Group">
