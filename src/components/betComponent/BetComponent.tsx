@@ -1,6 +1,6 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { user } from '../../types/user';
+import { UserTypes } from '../../types/user';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './betComponent.scss';
 import IconBack from '../icons/IconBack';
@@ -9,21 +9,36 @@ import IconChip from '../icons/IconChip';
 
 const BetComponent: FC = () => {
   const dispatch = useDispatch();
-  const { bet } = useSelector((state: RootReducer) => state.user);
-  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
+  const { maxBet } = useSelector((state: RootReducer) => state.casino);
+  const { bet, cash } = useSelector((state: RootReducer) => state.user);
+  const { dealStatus, chosenBet } = useSelector((state: RootReducer) => state.gameSession);
   const onClickDecreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    let decreaseSize: number | null = null;
+    if (chosenBet > bet) {
+      decreaseSize = bet;
+    } else {
+      decreaseSize = chosenBet;
+    }
     dispatch({
-      type: user.DECREASE_BET,
+      type: UserTypes.DECREASE_BET,
+      payload: decreaseSize,
     });
-  }, [dispatch]);
+  }, [dispatch, chosenBet]);
+
   const onClickIncreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    let increaseSize = chosenBet;
+    if (bet + chosenBet > maxBet) {
+      increaseSize = maxBet - bet;
+    }
     dispatch({
-      type: user.INCREASE_BET,
+      type: UserTypes.INCREASE_BET,
+      payload: increaseSize,
     });
-  }, [dispatch]);
+  }, [dispatch, chosenBet, bet]);
+
   const onClickClearBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
-      type: user.CLEAR_BET,
+      type: UserTypes.CLEAR_BET,
     });
   }, [dispatch]);
   return (
@@ -34,12 +49,17 @@ const BetComponent: FC = () => {
           <IconBack />
         </button>
         )}
-        <button type="button" onClick={onClickIncreaseBet} className="btn-bet">
+        <button
+          type="button"
+          onClick={onClickIncreaseBet}
+          className="btn-bet"
+          disabled={dealStatus}
+        >
           {bet > 0 && (
-          <div className="chip-block">
-            <IconChip fill="black" width="50" height="50" />
-            <span className="chip-title">{bet}</span>
-          </div>
+            <>
+              <IconChip fill="black" width="50" height="50" />
+              <span className="chip-title">{bet}</span>
+            </>
           )}
         </button>
         {bet > 0 && !dealStatus && (

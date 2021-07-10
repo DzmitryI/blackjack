@@ -7,12 +7,13 @@ import ChipsComponent from '../ChipsComponent';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
+  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
 
   return (
     <section className="game-footer">
       <div className="desc-wrap">
         <InfoBlock />
-        <ChipsComponent />
+        {!dealStatus && (<ChipsComponent />)}
       </div>
       <div className="result-wrap">
         <div className="result-block">

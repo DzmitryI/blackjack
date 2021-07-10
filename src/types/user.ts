@@ -1,7 +1,9 @@
-export enum user {
+export enum UserTypes {
   INCREASE_BET = 'INCREASE_BET',
   DECREASE_BET = 'DECREASE_BET',
-  CLEAR_BET = 'CLEAR_BET'
+  CLEAR_BET = 'CLEAR_BET',
+  INCREASE_CASH = 'INCREASE_CASH',
+  DECREASE_CASH = 'DECREASE_CASH',
 }
 
 export type InitialState = {
@@ -9,16 +11,28 @@ export type InitialState = {
   bet: number,
 }
 
-export interface increaseBetAction {
-  type: user.INCREASE_BET;
+export interface IncreaseBetAction {
+  type: UserTypes.INCREASE_BET;
+  payload: number;
 }
 
-export interface decreaseBetAction {
-  type: user.DECREASE_BET;
+export interface DecreaseBetAction {
+  type: UserTypes.DECREASE_BET;
+  payload: number;
 }
 
-export interface clearBetAction {
-  type: user.CLEAR_BET;
+export interface ClearBetAction {
+  type: UserTypes.CLEAR_BET;
 }
 
-export type userBet = increaseBetAction | decreaseBetAction | clearBetAction;
+export interface IncreaseCashAction {
+  type: UserTypes.INCREASE_CASH;
+  payload: number;
+}
+
+export interface DecreaseCashAction {
+  type: UserTypes.DECREASE_CASH;
+  payload: number;
+}
+
+export type userBet = IncreaseBetAction | DecreaseBetAction | ClearBetAction | IncreaseCashAction | DecreaseCashAction;

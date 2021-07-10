@@ -21,6 +21,7 @@ import {
 } from '../icons/diamonds';
 import { Clubs2, Clubs3, Clubs4 } from '../icons/clubs';
 import IconDeal from '../icons/IconDeal';
+import { UserTypes } from '../../types/user';
 
 const UserComponent: FC = () => {
   const { bet } = useSelector((state: RootReducer) => state.user);
@@ -30,7 +31,11 @@ const UserComponent: FC = () => {
     dispatch({
       type: GameSessionTypes.CHANGE_DEAL,
     });
-  }, [dispatch]);
+    dispatch({
+      type: UserTypes.DECREASE_CASH,
+      payload: bet,
+    });
+  }, [dispatch, bet]);
   return (
     <div className="user-block">
       {!dealStatus ? (
