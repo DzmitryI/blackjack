@@ -1,4 +1,4 @@
-import { casino, InitialState, MadeDeck } from '../../types/casino';
+import { CasinoTypes, InitialState, CasinoAction } from '../../types/casino';
 
 const initialState: InitialState = {
   suits: ['spades', 'diamonds', 'clubs', 'hearts'],
@@ -17,14 +17,19 @@ const initialState: InitialState = {
   maxBet: 500,
 };
 
-export const casinoReducer = (state = initialState, action: MadeDeck): InitialState => {
+export const casinoReducer = (state = initialState, action: CasinoAction): InitialState => {
   const { type, payload } = action;
   switch (type) {
-    case casino.MADE_DECK:
+    case CasinoTypes.MADE_DECK:
       return {
         ...state,
         deck: payload,
         isPreview: false,
+      };
+    case CasinoTypes.SHUFFLE_DECK:
+      return {
+        ...state,
+        deck: payload,
       };
     default:
       return state;

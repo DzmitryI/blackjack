@@ -1,5 +1,6 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { stat } from 'fs';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { GameSessionTypes } from '../../types/gameSession';
 import './userComponent.scss';
@@ -22,11 +23,14 @@ import {
 import { Clubs2, Clubs3, Clubs4 } from '../icons/clubs';
 import IconDeal from '../icons/IconDeal';
 import { UserTypes } from '../../types/user';
+import { CasinoTypes } from '../../types/casino';
+import { shuffleDeck } from '../../redux/actions/casinoActions';
 
 const UserComponent: FC = () => {
-  const { bet } = useSelector((state: RootReducer) => state.user);
-  const { dealStatus, userPoints } = useSelector((state: RootReducer) => state.gameSession);
   const dispatch = useDispatch();
+  const { bet } = useSelector((state: RootReducer) => state.user);
+  const { deck } = useSelector((state: RootReducer) => state.casino);
+  const { dealStatus, userPoints } = useSelector((state: RootReducer) => state.gameSession);
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: GameSessionTypes.CHANGE_DEAL,
@@ -35,7 +39,10 @@ const UserComponent: FC = () => {
       type: UserTypes.DECREASE_CASH,
       payload: bet,
     });
-  }, [dispatch, bet]);
+    dispatch(shuffleDeck(deck));
+    // const timerId = setInterval(() => alert('tick'), 2000);
+  }, [dispatch, bet, deck]);
+  console.log(deck, '');
   return (
     <div className="user-block">
       {!dealStatus ? (
