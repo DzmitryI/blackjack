@@ -1,6 +1,11 @@
+import { Deck, ItemDeck } from './casino';
+
 export enum GameSessionTypes {
   CHANGE_DEAL = 'CHANGE_DEAL',
   CHANGE_SIZE_BET = 'CHANGE_SIZE_BET',
+  CHANGE_DEALER_DECK = 'CHANGE_DEALER_DECK',
+  CHANGE_USER_DECK = 'CHANGE_USER_DECK',
+  CLEAR_DECK = 'CLEAR_DECK',
 }
 
 export type InitialState = {
@@ -8,6 +13,8 @@ export type InitialState = {
   dealerPoints: number,
   userPoints: number,
   chosenBet: number,
+  dealerDeck: Deck,
+  userDeck: Deck
 }
 
 interface ChangeDeal {
@@ -19,4 +26,18 @@ interface ChangeSizeBet {
   payload: number;
 }
 
-export type GameSessionAction = ChangeDeal | ChangeSizeBet;
+interface ChangeDealerDeck {
+  type: GameSessionTypes.CHANGE_DEALER_DECK;
+  payload: ItemDeck;
+}
+
+interface ChangeUserDeck {
+  type: GameSessionTypes.CHANGE_USER_DECK;
+  payload: ItemDeck;
+}
+
+interface ClearDeck {
+  type: GameSessionTypes.CLEAR_DECK;
+}
+
+export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck | ClearDeck;

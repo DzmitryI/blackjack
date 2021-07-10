@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../../types/svg';
 
-const Diamonds2: FC<SvgProps> = ({ width = '76', height = '114' }) => (
+const Diamond2: FC<SvgProps> = ({ width = '76', height = '114' }) => (
   <svg width={width} height={height} viewBox="0 0 77 115" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="diamonds2">
       <path id="Vector" fillRule="evenodd" clipRule="evenodd" d="M3.21228 0.0715332H73.3827L74.5342 0.376041L75.4699 1.32763L76.1176 2.69844L76.3335 4.44883V109.732L76.1176 111.407L75.4699 112.815L74.5342 113.729L73.3827 114.072H3.21228L2.06077 113.729L1.16115 112.815L0.512921 111.407L0.333496 109.732V4.44883L0.512921 2.69844L1.16115 1.32763L2.06077 0.376041L3.21228 0.0715332Z" fill="white" />
@@ -65,4 +65,4 @@ const Diamonds2: FC<SvgProps> = ({ width = '76', height = '114' }) => (
 
 );
 
-export default Diamonds2;
+export default Diamond2;

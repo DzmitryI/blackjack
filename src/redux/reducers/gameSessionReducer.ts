@@ -5,7 +5,8 @@ const initialState: InitialState = {
   dealerPoints: 0,
   userPoints: 0,
   chosenBet: 1,
-
+  dealerDeck: [],
+  userDeck: [],
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
@@ -20,6 +21,24 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
       return {
         ...state,
         chosenBet: action.payload,
+      };
+    case GameSessionTypes.CHANGE_DEALER_DECK:
+      return {
+        ...state,
+        dealerDeck: [...state.dealerDeck, action.payload],
+        dealerPoints: state.dealerPoints + action.payload.count,
+      };
+    case GameSessionTypes.CHANGE_USER_DECK:
+      return {
+        ...state,
+        userDeck: [...state.userDeck, action.payload],
+        userPoints: state.userPoints + action.payload.count,
+      };
+    case GameSessionTypes.CLEAR_DECK:
+      return {
+        ...state,
+        dealerDeck: [],
+        userDeck: [],
       };
     default:
       return state;

@@ -1,36 +1,18 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { stat } from 'fs';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { GameSessionTypes } from '../../types/gameSession';
 import './userComponent.scss';
-import IconShirt from '../icons/IconShirt';
-import {
-  Diamonds10,
-  Diamonds2,
-  Diamonds3,
-  Diamonds4,
-  Diamonds5,
-  Diamonds6,
-  Diamonds7,
-  Diamonds8,
-  Diamonds9,
-  DiamondsA,
-  DiamondsJ,
-  DiamondsK,
-  DiamondsQ,
-} from '../icons/diamonds';
-import { Clubs2, Clubs3, Clubs4 } from '../icons/clubs';
 import IconDeal from '../icons/IconDeal';
 import { UserTypes } from '../../types/user';
-import { CasinoTypes } from '../../types/casino';
 import { shuffleDeck } from '../../redux/actions/casinoActions';
+import UserDeckComponent from '../userDeckComponent';
 
 const UserComponent: FC = () => {
   const dispatch = useDispatch();
   const { bet } = useSelector((state: RootReducer) => state.user);
   const { deck } = useSelector((state: RootReducer) => state.casino);
-  const { dealStatus, userPoints } = useSelector((state: RootReducer) => state.gameSession);
+  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: GameSessionTypes.CHANGE_DEAL,
@@ -40,9 +22,27 @@ const UserComponent: FC = () => {
       payload: bet,
     });
     dispatch(shuffleDeck(deck));
-    // const timerId = setInterval(() => alert('tick'), 2000);
+
+    let curIndex = 0;
+    const timerId = setInterval(() => {
+      if (curIndex % 2 === 0) {
+        dispatch({
+          type: GameSessionTypes.CHANGE_USER_DECK,
+          payload: deck[curIndex],
+        });
+      } else {
+        dispatch({
+          type: GameSessionTypes.CHANGE_DEALER_DECK,
+          payload: deck[curIndex],
+        });
+      }
+      curIndex += 1;
+      if (curIndex === 4) {
+        clearInterval(timerId);
+      }
+    }, 2000);
   }, [dispatch, bet, deck]);
-  console.log(deck, '');
+  // console.log('dealerDeck ', dealerDeck, 'userDeck  ', userDeck, 'deck ', deck);
   return (
     <div className="user-block">
       {!dealStatus ? (
@@ -57,15 +57,7 @@ const UserComponent: FC = () => {
           </button>
         </div>
       ) : (
-        <>
-          <p className="user-count">{userPoints}</p>
-          <div className="user-card-wrap">
-            <IconShirt />
-            <Clubs2 />
-            <Clubs3 />
-            <Clubs4 />
-          </div>
-        </>
+        <UserDeckComponent />
       )}
     </div>
   );

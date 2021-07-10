@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
 const IconDeal: FC<SvgProps> = ({
-  width = '82', height = '82', fill, className,
+  width = '82', height = '82', fill,
 }) => (
-  <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width={width} height={height} viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="iconDeal">
       <g id="group">
         <rect id="Rectangle 10" x="10.509" y="35.8656" width="5.13597" height="5.99197" fill={fill} />

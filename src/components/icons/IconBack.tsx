@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
-const IconBack: FC<SvgProps> = ({
-  width = '30', height = '30', fill, className,
-}) => (
+const IconBack: FC<SvgProps> = ({ width = '30', height = '30' }) => (
   <svg width={width} height={height} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="btn-back" clipPath="url(#clip0)">
       <g id="Group">

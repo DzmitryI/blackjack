@@ -10,7 +10,7 @@ import IconChip from '../icons/IconChip';
 const BetComponent: FC = () => {
   const dispatch = useDispatch();
   const { maxBet } = useSelector((state: RootReducer) => state.casino);
-  const { bet, cash } = useSelector((state: RootReducer) => state.user);
+  const { bet } = useSelector((state: RootReducer) => state.user);
   const { dealStatus, chosenBet } = useSelector((state: RootReducer) => state.gameSession);
   const onClickDecreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     let decreaseSize: number | null = null;

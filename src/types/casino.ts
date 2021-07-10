@@ -17,7 +17,7 @@ export type InitialState = {
 
 export type PayloadDeck = {values: string[], suits: string[]}
 
-type ItemDeck = {value: string, suit: string, count: number}
+export type ItemDeck = {value: string, suit: string, count: number}
 
 export type Deck = ItemDeck[];
 

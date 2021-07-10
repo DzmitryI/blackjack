@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../../types/svg';
 
-const Diamonds6: FC<SvgProps> = ({ width = '76', height = '114' }) => (
+const Diamond6: FC<SvgProps> = ({ width = '76', height = '114' }) => (
   <svg width={width} height={height} viewBox="0 0 77 114" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="diamonds6">
       <g id="Group">
@@ -110,4 +110,4 @@ const Diamonds6: FC<SvgProps> = ({ width = '76', height = '114' }) => (
 
 );
 
-export default Diamonds6;
+export default Diamond6;

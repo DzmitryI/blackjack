@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../../types/svg';
 
-const Clubs3: FC<SvgProps> = ({ width = '76', height = '114' }) => (
+const Club3: FC<SvgProps> = ({ width = '76', height = '114' }) => (
   <svg width={width} height={height} viewBox="0 0 77 115" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <path fillRule="evenodd" clipRule="evenodd" d="M3.24548 0.0718994H73.4159L74.5669 0.376401L75.5031 1.328L76.1503 2.6988L76.3667 4.44919V109.733L76.1503 111.407L75.5031 112.816L74.5669 113.729L73.4159 114.072H3.24548L2.09347 113.729L1.19435 112.816L0.546616 111.407L0.366699 109.733V4.44919L0.546616 2.6988L1.19435 1.328L2.09347 0.376401L3.24548 0.0718994Z" fill="white" />
     <path d="M5.94085 7.43879C6.24872 6.66907 6.63807 6.07538 7.10787 5.65722C7.57717 5.23905 8.16242 5.02917 8.86363 5.02917C9.72876 5.02917 10.393 5.32681 10.8543 5.92208C11.2046 6.36562 11.3796 6.83982 11.3796 7.34522C11.3796 8.17627 10.8863 9.03535 9.89868 9.92296C10.5624 10.1984 11.0642 10.5912 11.404 11.1019C11.7439 11.6126 11.9138 12.2142 11.9138 12.9041C11.9138 13.8927 11.616 14.7491 11.0217 15.4733C10.2465 16.4165 9.12401 16.8886 7.65363 16.8886C6.92593 16.8886 6.43115 16.7929 6.16826 16.602C5.90587 16.4117 5.77393 16.2061 5.77393 15.9872C5.77393 15.8244 5.8364 15.6811 5.96135 15.5574C6.08579 15.4342 6.23573 15.3719 6.41115 15.3719C6.5441 15.3719 6.67904 15.3946 6.81748 15.4395C6.90744 15.4675 7.11236 15.5696 7.43073 15.7467C7.7496 15.9238 7.9695 16.029 8.09145 16.0628C8.28836 16.1247 8.49778 16.1559 8.72068 16.1559C9.26196 16.1559 9.73326 15.9338 10.1341 15.4903C10.5349 15.0462 10.7353 14.5212 10.7353 13.9149C10.7353 13.4713 10.6419 13.0394 10.4564 12.6181C10.319 12.3035 10.1676 12.0651 10.0026 11.9023C9.77424 11.6776 9.46137 11.474 9.06304 11.2917C8.66521 11.1093 8.25888 11.0178 7.84456 11.0178H7.58966V10.7646C8.00948 10.7091 8.4303 10.5489 8.85162 10.2846C9.27395 10.0208 9.58082 9.70304 9.77174 9.33298C9.96266 8.96239 10.0581 8.55479 10.0581 8.11125C10.0581 7.5329 9.88719 7.06503 9.54483 6.70871C9.20197 6.35239 8.77666 6.17371 8.26638 6.17371C7.44372 6.17371 6.75651 6.63998 6.20424 7.57254L5.94085 7.43879Z" fill="#231F20" />
@@ -18,6 +18,14 @@ const Clubs3: FC<SvgProps> = ({ width = '76', height = '114' }) => (
     <rect x="31.1636" y="53.8853" width="7.34887" height="7.87379" fill="url(#pattern6)" />
     <rect x="42.187" y="53.8853" width="7.34887" height="7.87379" fill="url(#pattern7)" />
     <rect x="36.4126" y="46.5364" width="7.87379" height="7.34887" fill="url(#pattern8)" />
+    <path fillRule="evenodd" clipRule="evenodd" d="M11.1452 23.5474C10.6958 23.5474 10.288 23.7242 9.9851 24.0109L9.80557 23.824C10.3494 23.5431 10.7221 22.9768 10.7221 22.3217C10.7221 21.3878 9.96516 20.6304 9.0308 20.6304C8.09645 20.6304 7.33899 21.3873 7.33899 22.3217C7.33899 22.9799 7.71588 23.5484 8.26442 23.8282L8.07911 24.0135C7.77571 23.7258 7.36734 23.5479 6.91591 23.5479C5.98208 23.5479 5.22461 24.3053 5.22461 25.2397C5.22461 26.174 5.98155 26.9315 6.91591 26.9315C7.85026 26.9315 8.60772 26.174 8.60772 25.2397C8.60772 25.2287 8.60615 25.2176 8.60615 25.2066C8.81559 25.4061 9.06282 26.0297 8.5442 27.9887H9.51687C8.99878 26.0302 9.24496 25.4061 9.45546 25.2066C9.45493 25.2176 9.45389 25.2287 9.45389 25.2397C9.45389 26.1735 10.2108 26.9315 11.1452 26.9315C12.0795 26.9315 12.837 26.174 12.837 25.2397C12.837 24.3053 12.08 23.5474 11.1452 23.5474Z" fill="#231F20" />
+    <rect x="5.44287" y="23.44" width="3.14952" height="3.14952" fill="url(#pattern9)" />
+    <rect x="9.64209" y="23.44" width="3.14952" height="3.14952" fill="url(#pattern10)" />
+    <rect x="7.54248" y="20.8154" width="3.14952" height="3.14952" fill="url(#pattern11)" />
+    <path fillRule="evenodd" clipRule="evenodd" d="M69.4164 89.6929C69.8657 89.6929 70.2741 89.516 70.577 89.2299L70.7565 89.4163C70.2122 89.6976 69.8395 90.264 69.8395 90.9186C69.8395 91.8529 70.5964 92.6104 71.5313 92.6104C72.4651 92.6104 73.2226 91.8535 73.2226 90.9186C73.2226 90.2608 72.8462 89.6918 72.2977 89.4126L72.483 89.2273C72.7858 89.5149 73.1948 89.6924 73.6457 89.6924C74.5795 89.6924 75.3375 88.9354 75.3375 88.0005C75.3375 87.0667 74.58 86.3093 73.6457 86.3093C72.7113 86.3093 71.9544 87.0662 71.9544 88.0005C71.9544 88.0121 71.9554 88.0226 71.9559 88.0336C71.746 87.8347 71.4993 87.2111 72.0174 85.2521H71.0447C71.5633 87.2105 71.3166 87.8347 71.1066 88.0336C71.1066 88.0226 71.1082 88.0121 71.1082 88.0005C71.1082 87.0667 70.3513 86.3093 69.4164 86.3093C68.4826 86.3093 67.7251 87.0662 67.7251 88.0005C67.7251 88.936 68.4826 89.6929 69.4164 89.6929Z" fill="#231F20" />
+    <rect x="72.1074" y="86.4302" width="3.14952" height="3.14952" fill="url(#pattern12)" />
+    <rect x="67.9077" y="86.4302" width="3.14952" height="3.14952" fill="url(#pattern13)" />
+    <rect x="70.0078" y="89.5797" width="3.14952" height="3.14952" fill="url(#pattern14)" />
     <defs>
       <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
         <use xlinkHref="#image0" />
@@ -46,13 +54,32 @@ const Clubs3: FC<SvgProps> = ({ width = '76', height = '114' }) => (
       <pattern id="pattern8" patternContentUnits="objectBoundingBox" width="1" height="1">
         <use xlinkHref="#image1" />
       </pattern>
+      <pattern id="pattern9" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
+      <pattern id="pattern10" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
+      <pattern id="pattern11" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
+      <pattern id="pattern12" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
+      <pattern id="pattern13" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
+      <pattern id="pattern14" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlinkHref="#image4" />
+      </pattern>
       <image id="image0" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAPCAYAAADUFP50AAAACXBIWXMAAAsSAAALEgHS3X78AAAA" />
       <image id="image1" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAOCAYAAADwikbvAAAACXBIWXMAAAsSAAALEgHS3X78AAAA" />
       <image id="image2" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsSAAALEgHS3X78AAAA" />
       <image id="image3" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA" />
+      <image id="image4" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAACXBIWXMAAAsSAAALEgHS3X78AAAA" />
     </defs>
   </svg>
 
 );
 
-export default Clubs3;
+export default Club3;

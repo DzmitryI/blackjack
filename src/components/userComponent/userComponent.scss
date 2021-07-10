@@ -21,21 +21,6 @@
 			}
 		}
 	}
-	.user-count {
-		width: 45px;
-		height: 25px;
-		background: black;
-		text-align: center;
-	}
-	.user-card-wrap {
-		@include flexPosition();
-		.user-card {
-			width: 76px;
-			height: 114px;
-			border: 1px solid black;
-			border-radius: 4px;
-			margin-right: 5px;
-		}
-	}
+	
 }
 

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, useCallback } from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';

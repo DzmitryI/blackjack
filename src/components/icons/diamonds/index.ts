@@ -1,29 +1,29 @@
-import Diamonds2 from './Diamonds2';
-import Diamonds3 from './Diamonds3';
-import Diamonds4 from './Diamonds4';
-import Diamonds5 from './Diamonds5';
-import Diamonds6 from './Diamonds6';
-import Diamonds7 from './Diamonds7';
-import Diamonds8 from './Diamonds8';
-import Diamonds9 from './Diamonds9';
-import Diamonds10 from './Diamonds10';
-import DiamondsJ from './DiamondsJ';
-import DiamondsQ from './DiamondsQ';
-import DiamondsK from './DiamondsK';
-import DiamondsA from './DiamondsA';
+import Diamond2 from './Diamond2';
+import Diamond3 from './Diamond3';
+import Diamond4 from './Diamond4';
+import Diamond5 from './Diamond5';
+import Diamond6 from './Diamond6';
+import Diamond7 from './Diamond7';
+import Diamond8 from './Diamond8';
+import Diamond9 from './Diamond9';
+import Diamond10 from './Diamond10';
+import DiamondJ from './DiamondJ';
+import DiamondQ from './DiamondQ';
+import DiamondK from './DiamondK';
+import DiamondA from './DiamondA';
 
 export {
-  Diamonds2,
-  Diamonds3,
-  Diamonds4,
-  Diamonds5,
-  Diamonds6,
-  Diamonds7,
-  Diamonds8,
-  Diamonds9,
-  Diamonds10,
-  DiamondsJ,
-  DiamondsQ,
-  DiamondsK,
-  DiamondsA,
+  Diamond2,
+  Diamond3,
+  Diamond4,
+  Diamond5,
+  Diamond6,
+  Diamond7,
+  Diamond8,
+  Diamond9,
+  Diamond10,
+  DiamondJ,
+  DiamondQ,
+  DiamondK,
+  DiamondA,
 };
