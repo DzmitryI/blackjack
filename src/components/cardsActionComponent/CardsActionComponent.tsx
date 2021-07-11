@@ -1,4 +1,6 @@
-import React, { FC, MouseEventHandler, useCallback } from 'react';
+import React, {
+  FC, MouseEventHandler, useCallback, useEffect,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GameSessionTypes } from '../../types/gameSession';
 import { RootReducer } from '../../redux/reducers/rootReducer';
@@ -24,6 +26,27 @@ const CardsActionComponent: FC = () => {
     });
   }, [dispatch, idxDeck]);
 
+  useEffect(() => {
+    const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
+    if (checkHands) {
+      if (allDealerPoints > 21 || allDealerPoints < userPoints) {
+        dispatch({
+          type: GameSessionTypes.USER_WON,
+        });
+        dispatch({
+          type: UserTypes.INCREASE_CASH,
+          payload: bet * 2,
+        });
+      }
+      if (allDealerPoints === userPoints) {
+        dispatch({
+          type: UserTypes.INCREASE_CASH,
+          payload: bet,
+        });
+      }
+    }
+  }, [dealerPoints, checkHands]);
+
   const onClickStopCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
     dispatch({
@@ -36,21 +59,6 @@ const CardsActionComponent: FC = () => {
       });
       dispatch({
         type: GameSessionTypes.INCREASE_IDX_DECK,
-      });
-    }
-    if (allDealerPoints > 21 || allDealerPoints < userPoints) {
-      dispatch({
-        type: GameSessionTypes.USER_WON,
-      });
-      dispatch({
-        type: UserTypes.INCREASE_CASH,
-        payload: bet * 2,
-      });
-    }
-    if (allDealerPoints === userPoints) {
-      dispatch({
-        type: UserTypes.INCREASE_CASH,
-        payload: bet,
       });
     }
   }, [dispatch, dealerPoints, userPoints]);
