@@ -57,7 +57,6 @@ import {
   SpadeJ, SpadeK,
   SpadeQ,
 } from '../icons/spaders';
-import ChipsComponent from '../сhipsComponent';
 
 const renderCard = (name: string) => {
   switch (name) {

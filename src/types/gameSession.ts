@@ -8,6 +8,7 @@ export enum GameSessionTypes {
   CLEAR_CUR_GAME = 'CLEAR_CUR_GAME',
   INCREASE_IDX_DECK = 'INCREASE_IDX_DECK',
   CHECK_HANDS = 'CHECK_HANDS',
+  USER_WON = 'USER_WON',
 }
 
 export type InitialState = {
@@ -19,6 +20,7 @@ export type InitialState = {
   userDeck: Deck,
   idxDeck: number,
   checkHands: boolean,
+  userWon: boolean,
 }
 
 interface ChangeDeal {
@@ -52,4 +54,9 @@ interface CheckHands {
   type: GameSessionTypes.CHECK_HANDS;
 }
 
-export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck | ClearDeck | IncreaseIdxDeck | CheckHands;
+interface UserWon {
+  type: GameSessionTypes.USER_WON;
+}
+
+export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck
+  | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon;

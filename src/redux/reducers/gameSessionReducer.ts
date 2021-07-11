@@ -9,6 +9,7 @@ const initialState: InitialState = {
   userDeck: [],
   idxDeck: 4,
   checkHands: false,
+  userWon: false,
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
@@ -36,6 +37,21 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         userDeck: [...state.userDeck, action.payload],
         userPoints: state.userPoints + action.payload.count,
       };
+    case GameSessionTypes.INCREASE_IDX_DECK:
+      return {
+        ...state,
+        idxDeck: state.idxDeck + 1,
+      };
+    case GameSessionTypes.CHECK_HANDS:
+      return {
+        ...state,
+        checkHands: true,
+      };
+    case GameSessionTypes.USER_WON:
+      return {
+        ...state,
+        userWon: true,
+      };
     case GameSessionTypes.CLEAR_CUR_GAME:
       return {
         dealStatus: false,
@@ -46,16 +62,7 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         userDeck: [],
         idxDeck: 4,
         checkHands: false,
-      };
-    case GameSessionTypes.INCREASE_IDX_DECK:
-      return {
-        ...state,
-        idxDeck: state.idxDeck + 1,
-      };
-    case GameSessionTypes.CHECK_HANDS:
-      return {
-        ...state,
-        checkHands: true,
+        userWon: false,
       };
     default:
       return state;
