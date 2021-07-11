@@ -47,6 +47,12 @@ const CardsActionComponent: FC = () => {
         payload: bet * 2,
       });
     }
+    if (allDealerPoints === userPoints) {
+      dispatch({
+        type: UserTypes.INCREASE_CASH,
+        payload: bet,
+      });
+    }
   }, [dispatch, dealerPoints, userPoints]);
 
   const onClickNewGame: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
