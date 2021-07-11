@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgProps } from '../../types/svg';
 
-const IconNewGame: FC<SvgProps> = ({ width = '44', height = '54' }) => (
+const IconNewGame: FC<SvgProps> = ({ width = '34', height = '44' }) => (
   <svg width={width} height={height} viewBox="0 0 44 54" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="new-game" clipPath="url(#clip0)">
       <g id="Group">

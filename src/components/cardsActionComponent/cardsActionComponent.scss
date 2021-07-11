@@ -1,14 +1,30 @@
 @import "src/styles/mixins";
 
 .cards-action-wrap {
-	@include flexPosition(space-between, center);
+	@include flexPosition();
 	width: 120px;
 	position: absolute;
-	top: -30px;
+	top: -25px;
 	left: calc(50% - 60px);
-	.btn-stop-card,
-	.btn-add-card {
-		width: 54px;
+	.action-wrap {
+		@include flexPosition(space-between, center);
+		width: 100%;
+		.btn-stop-card,
+		.btn-add-card {
+			width: 54px;
+			height: 44px;
+			padding: 0;
+			margin: 0;
+			border: none;
+			background: none;
+			transition: 500ms ease-in-out;
+			&:hover {
+				transform: scale(1.2)
+			}
+		}
+	}
+	.btn-new-game {
+		width: 34px;
 		height: 44px;
 		padding: 0;
 		margin: 0;

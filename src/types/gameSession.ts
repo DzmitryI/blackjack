@@ -5,9 +5,8 @@ export enum GameSessionTypes {
   CHANGE_SIZE_BET = 'CHANGE_SIZE_BET',
   CHANGE_DEALER_DECK = 'CHANGE_DEALER_DECK',
   CHANGE_USER_DECK = 'CHANGE_USER_DECK',
-  CLEAR_DECK = 'CLEAR_DECK',
+  CLEAR_CUR_GAME = 'CLEAR_CUR_GAME',
   INCREASE_IDX_DECK = 'INCREASE_IDX_DECK',
-  RESET_IDX_DECK = 'RESET_IDX_DECK',
 }
 
 export type InitialState = {
@@ -40,7 +39,7 @@ interface ChangeUserDeck {
 }
 
 interface ClearDeck {
-  type: GameSessionTypes.CLEAR_DECK;
+  type: GameSessionTypes.CLEAR_CUR_GAME;
 }
 
 interface IncreaseIdxDeck {

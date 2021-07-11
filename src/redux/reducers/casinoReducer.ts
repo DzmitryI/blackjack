@@ -15,7 +15,7 @@ const initialState: InitialState = {
   isPreview: true,
   minBet: 1,
   maxBet: 500,
-  maxCount: 21,
+  maxCount: 22,
 };
 
 export const casinoReducer = (state = initialState, action: CasinoAction): InitialState => {

@@ -35,13 +35,15 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         userDeck: [...state.userDeck, action.payload],
         userPoints: state.userPoints + action.payload.count,
       };
-    case GameSessionTypes.CLEAR_DECK:
+    case GameSessionTypes.CLEAR_CUR_GAME:
       return {
-        ...state,
-        dealerDeck: [],
+        dealStatus: false,
         dealerPoints: [],
-        userDeck: [],
         userPoints: 0,
+        chosenBet: 1,
+        dealerDeck: [],
+        userDeck: [],
+        idxDeck: 4,
       };
     case GameSessionTypes.INCREASE_IDX_DECK:
       return {

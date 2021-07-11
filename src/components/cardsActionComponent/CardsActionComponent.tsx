@@ -5,11 +5,13 @@ import IconStopCard from '../icons/IconStopCard';
 import { GameSessionTypes } from '../../types/gameSession';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './cardsActionComponent.scss';
+import IconNewGame from '../icons/IconNewGame';
+import { UserTypes } from '../../types/user';
 
 const CardsActionComponent = () => {
   const dispatch = useDispatch();
-  const { deck } = useSelector((state: RootReducer) => state.casino);
-  const { idxDeck } = useSelector((state: RootReducer) => state.gameSession);
+  const { deck, maxCount } = useSelector((state: RootReducer) => state.casino);
+  const { idxDeck, userPoints } = useSelector((state: RootReducer) => state.gameSession);
 
   const onClickAddCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
@@ -22,17 +24,35 @@ const CardsActionComponent = () => {
   }, [dispatch, idxDeck]);
 
   const onClickStopCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    console.log('add card');
+    console.log('stop card');
   }, []);
+
+  const onClickNewGame: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    dispatch({
+      type: GameSessionTypes.CLEAR_CUR_GAME,
+    });
+    dispatch({
+      type: UserTypes.CLEAR_BET,
+    });
+  }, [dispatch]);
 
   return (
     <div className="cards-action-wrap">
-      <button type="button" onClick={onClickStopCard} className="btn-stop-card">
-        <IconStopCard />
-      </button>
-      <button type="button" onClick={onClickAddCard} className="btn-add-card">
-        <IconAddCard />
-      </button>
+      { userPoints < maxCount ? (
+        <div className="action-wrap">
+          <button type="button" onClick={onClickStopCard} className="btn-stop-card">
+            <IconStopCard />
+          </button>
+          <button type="button" onClick={onClickAddCard} className="btn-add-card">
+            <IconAddCard />
+          </button>
+        </div>
+      )
+        : (
+          <button type="button" onClick={onClickNewGame} className="btn-new-game">
+            <IconNewGame />
+          </button>
+        )}
     </div>
   );
 };
