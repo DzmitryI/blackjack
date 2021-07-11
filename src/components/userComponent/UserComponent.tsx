@@ -11,8 +11,8 @@ import UserDeckComponent from '../userDeckComponent';
 const UserComponent: FC = () => {
   const dispatch = useDispatch();
   const { bet } = useSelector((state: RootReducer) => state.user);
-  const { deck } = useSelector((state: RootReducer) => state.casino);
-  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
+  const { deck, maxCount } = useSelector((state: RootReducer) => state.casino);
+  const { dealStatus, userPoints } = useSelector((state: RootReducer) => state.gameSession);
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: GameSessionTypes.CHANGE_DEAL,
@@ -42,7 +42,6 @@ const UserComponent: FC = () => {
       }
     }, 1000);
   }, [dispatch, bet, deck]);
-  // console.log('dealerDeck ', dealerDeck, 'userDeck  ', userDeck, 'deck ', deck);
   return (
     <div className="user-block">
       {!dealStatus ? (
@@ -59,6 +58,7 @@ const UserComponent: FC = () => {
       ) : (
         <UserDeckComponent />
       )}
+      {userPoints >= maxCount && <p className="cards-action-subtitle">BUST</p>}
     </div>
   );
 };

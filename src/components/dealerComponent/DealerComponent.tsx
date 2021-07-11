@@ -66,7 +66,7 @@ const DealerComponent: FC = () => {
     <div className="dealer-block">
       {dealStatus && (
       <>
-        {dealerDeck.length > 0 && (<p className="dealer-count">{dealerPoints}</p>)}
+        {dealerDeck.length > 0 && (<p className="dealer-count">{dealerPoints[0]}</p>)}
         <div className="dealer-card-wrap">
           {dealerDeck.map((card, index) => {
             const name = card.suit + card.value;

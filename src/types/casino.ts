@@ -13,6 +13,7 @@ export type InitialState = {
   isPreview: boolean,
   minBet: number,
   maxBet: number,
+  maxCount: number,
 }
 
 export type PayloadDeck = {values: string[], suits: string[]}

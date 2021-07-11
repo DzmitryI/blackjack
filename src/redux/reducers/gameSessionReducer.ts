@@ -2,11 +2,12 @@ import { GameSessionTypes, GameSessionAction, InitialState } from '../../types/g
 
 const initialState: InitialState = {
   dealStatus: false,
-  dealerPoints: 0,
+  dealerPoints: [],
   userPoints: 0,
   chosenBet: 1,
   dealerDeck: [],
   userDeck: [],
+  idxDeck: 4,
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
@@ -26,7 +27,7 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
       return {
         ...state,
         dealerDeck: [...state.dealerDeck, action.payload],
-        dealerPoints: state.dealerPoints + action.payload.count,
+        dealerPoints: [...state.dealerPoints, action.payload.count],
       };
     case GameSessionTypes.CHANGE_USER_DECK:
       return {
@@ -38,7 +39,14 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
       return {
         ...state,
         dealerDeck: [],
+        dealerPoints: [],
         userDeck: [],
+        userPoints: 0,
+      };
+    case GameSessionTypes.INCREASE_IDX_DECK:
+      return {
+        ...state,
+        idxDeck: state.idxDeck + 1,
       };
     default:
       return state;
