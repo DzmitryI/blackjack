@@ -43,16 +43,16 @@ import {
   HeartQ,
 } from '../icons/hearts';
 import {
-  Spider10,
-  Spider2,
-  Spider3,
-  Spider4,
-  Spider5,
-  Spider6,
-  Spider7,
-  Spider8,
-  Spider9, SpiderA,
-  SpiderJ, SpiderK, SpiderQ,
+  Spade10,
+  Spade2,
+  Spade3,
+  Spade4,
+  Spade5,
+  Spade6,
+  Spade7,
+  Spade8,
+  Spade9, SpadeA,
+  SpadeJ, SpadeK, SpadeQ,
 } from '../icons/spaders';
 
 const UserDeckComponent: FC = () => {
@@ -60,7 +60,7 @@ const UserDeckComponent: FC = () => {
   console.log(userDeck, userPoints);
   return (
     <>
-      <p className="user-count">{userPoints}</p>
+      {userDeck.length > 0 && (<p className="user-count">{userPoints}</p>)}
       <div className="user-card-wrap">
         {userDeck.map((card) => {
           const name = card.suit + card.value;
@@ -143,32 +143,32 @@ const UserDeckComponent: FC = () => {
               return <HeartK key={name} />;
             case 'heartsA':
               return <HeartA key={name} />;
-            case 'spiders2':
-              return <Spider2 key={name} />;
-            case 'spiders3':
-              return <Spider3 key={name} />;
-            case 'spiders4':
-              return <Spider4 key={name} />;
-            case 'spiders5':
-              return <Spider5 key={name} />;
-            case 'spiders6':
-              return <Spider6 key={name} />;
-            case 'spiders7':
-              return <Spider7 key={name} />;
-            case 'spiders8':
-              return <Spider8 key={name} />;
-            case 'spiders9':
-              return <Spider9 key={name} />;
-            case 'spiders10':
-              return <Spider10 key={name} />;
-            case 'spidersJ':
-              return <SpiderJ key={name} />;
-            case 'spidersQ':
-              return <SpiderQ key={name} />;
-            case 'spidersK':
-              return <SpiderK key={name} />;
-            case 'spidersA':
-              return <SpiderA key={name} />;
+            case 'spades2':
+              return <Spade2 key={name} />;
+            case 'spades3':
+              return <Spade3 key={name} />;
+            case 'spades4':
+              return <Spade4 key={name} />;
+            case 'spades5':
+              return <Spade5 key={name} />;
+            case 'spades6':
+              return <Spade6 key={name} />;
+            case 'spades7':
+              return <Spade7 key={name} />;
+            case 'spades8':
+              return <Spade8 key={name} />;
+            case 'spades9':
+              return <Spade9 key={name} />;
+            case 'spades10':
+              return <Spade10 key={name} />;
+            case 'spadesJ':
+              return <SpadeJ key={name} />;
+            case 'spadesQ':
+              return <SpadeQ key={name} />;
+            case 'spadesK':
+              return <SpadeK key={name} />;
+            case 'spadesA':
+              return <SpadeA key={name} />;
             default:
               return null;
           }

@@ -1,29 +1,29 @@
-import Spider2 from './Spider2';
-import Spider3 from './Spider3';
-import Spider4 from './Spider4';
-import Spider5 from './Spider5';
-import Spider6 from './Spider6';
-import Spider7 from './Spider7';
-import Spider8 from './Spider8';
-import Spider9 from './Spider9';
-import Spider10 from './Spider10';
-import SpiderJ from './SpiderJ';
-import SpiderQ from './SpiderQ';
-import SpiderK from './SpiderK';
-import SpiderA from './SpiderA';
+import Spade2 from './Spade2';
+import Spade3 from './Spade3';
+import Spade4 from './Spade4';
+import Spade5 from './Spade5';
+import Spade6 from './Spade6';
+import Spade7 from './Spade7';
+import Spade8 from './Spade8';
+import Spade9 from './Spade9';
+import Spade10 from './Spade10';
+import SpadeJ from './SpadeJ';
+import SpadeQ from './SpadeQ';
+import SpadeK from './SpadeK';
+import SpadeA from './SpadeA';
 
 export {
-  Spider2,
-  Spider3,
-  Spider4,
-  Spider5,
-  Spider6,
-  Spider7,
-  Spider8,
-  Spider9,
-  Spider10,
-  SpiderJ,
-  SpiderQ,
-  SpiderK,
-  SpiderA,
+  Spade2,
+  Spade3,
+  Spade4,
+  Spade5,
+  Spade6,
+  Spade7,
+  Spade8,
+  Spade9,
+  Spade10,
+  SpadeJ,
+  SpadeQ,
+  SpadeK,
+  SpadeA,
 };
