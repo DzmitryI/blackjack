@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './gameFooter.scss';
 import InfoBlock from '../infoBlock';
-import ChipsComponent from '../ChipsComponent';
+import ChipsComponent from '../сhipsComponent';
+import CardsActionComponent from '../cardsActionComponent';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
@@ -13,7 +14,8 @@ const GamesFooter: FC = () => {
     <section className="game-footer">
       <div className="desc-wrap">
         <InfoBlock />
-        {!dealStatus && (<ChipsComponent />)}
+        {!dealStatus ? (<ChipsComponent />) : (<CardsActionComponent />)}
+
       </div>
       <div className="result-wrap">
         <div className="result-block">

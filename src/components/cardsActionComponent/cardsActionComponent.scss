@@ -1,0 +1,22 @@
+@import "src/styles/mixins";
+
+.cards-action-wrap {
+	@include flexPosition(space-between, center);
+	width: 120px;
+	position: absolute;
+	top: -30px;
+	left: calc(50% - 60px);
+	.btn-stop-card,
+	.btn-add-card {
+		width: 54px;
+		height: 44px;
+		padding: 0;
+		margin: 0;
+		border: none;
+		background: none;
+		transition: 500ms ease-in-out;
+		&:hover {
+			transform: scale(1.2)
+		}
+	}
+}

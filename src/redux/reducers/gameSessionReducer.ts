@@ -26,7 +26,7 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
       return {
         ...state,
         dealerDeck: [...state.dealerDeck, action.payload],
-        dealerPoints: action.payload.count,
+        dealerPoints: state.dealerPoints + action.payload.count,
       };
     case GameSessionTypes.CHANGE_USER_DECK:
       return {

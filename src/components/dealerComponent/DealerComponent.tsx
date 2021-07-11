@@ -57,10 +57,11 @@ import {
   SpadeJ, SpadeK,
   SpadeQ,
 } from '../icons/spaders';
-import ChipsComponent from '../ChipsComponent';
+import ChipsComponent from '../сhipsComponent';
 
 const DealerComponent: FC = () => {
   const { dealStatus, dealerPoints, dealerDeck } = useSelector((state: RootReducer) => state.gameSession);
+  console.log('dealerDeck ', dealerDeck);
   return (
     <div className="dealer-block">
       {dealStatus && (
