@@ -8,6 +8,7 @@ const initialState: InitialState = {
   dealerDeck: [],
   userDeck: [],
   idxDeck: 4,
+  checkHands: false,
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
@@ -44,11 +45,17 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         dealerDeck: [],
         userDeck: [],
         idxDeck: 4,
+        checkHands: false,
       };
     case GameSessionTypes.INCREASE_IDX_DECK:
       return {
         ...state,
         idxDeck: state.idxDeck + 1,
+      };
+    case GameSessionTypes.CHECK_HANDS:
+      return {
+        ...state,
+        checkHands: true,
       };
     default:
       return state;

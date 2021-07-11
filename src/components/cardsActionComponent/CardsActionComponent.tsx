@@ -11,7 +11,9 @@ import { UserTypes } from '../../types/user';
 const CardsActionComponent = () => {
   const dispatch = useDispatch();
   const { deck, maxCount } = useSelector((state: RootReducer) => state.casino);
-  const { idxDeck, userPoints } = useSelector((state: RootReducer) => state.gameSession);
+  const {
+    idxDeck, userPoints, dealerPoints, checkHands,
+  } = useSelector((state: RootReducer) => state.gameSession);
 
   const onClickAddCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
@@ -24,8 +26,15 @@ const CardsActionComponent = () => {
   }, [dispatch, idxDeck]);
 
   const onClickStopCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    console.log('stop card');
-  }, []);
+    dispatch({
+      type: GameSessionTypes.CHECK_HANDS,
+    });
+    if (dealerPoints.reduce((acc, point) => acc + point, 0) < 17) {
+      dispatch({
+        type: GameSessionTypes.CHANGE_DEALER_DECK,
+      });
+    }
+  }, [dispatch, dealerPoints]);
 
   const onClickNewGame: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
@@ -38,7 +47,7 @@ const CardsActionComponent = () => {
 
   return (
     <div className="cards-action-wrap">
-      { userPoints < maxCount ? (
+      { userPoints < maxCount && !checkHands ? (
         <div className="action-wrap">
           <button type="button" onClick={onClickStopCard} className="btn-stop-card">
             <IconStopCard />
