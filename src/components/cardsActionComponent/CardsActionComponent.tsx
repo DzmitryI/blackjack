@@ -1,12 +1,10 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import IconAddCard from '../icons/IconAddCard';
-import IconStopCard from '../icons/IconStopCard';
 import { GameSessionTypes } from '../../types/gameSession';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import './cardsActionComponent.scss';
-import IconNewGame from '../icons/IconNewGame';
+import { IconNewGame, IconAddCard, IconStopCard } from '../icons';
 import { UserTypes } from '../../types/user';
+import './cardsActionComponent.scss';
 
 const CardsActionComponent: FC = () => {
   const dispatch = useDispatch();

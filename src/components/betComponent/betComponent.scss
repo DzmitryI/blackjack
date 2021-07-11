@@ -55,4 +55,19 @@
 			}
 		}
 	}
+	.blackJack0,
+	.blackJack1,
+	.blackJack2 {
+		position: absolute;
+		top: 0;
+	}
+	.blackJack0 {
+		right: 0;
+	}
+	.blackJack1 {
+		right: 7px;
+	}
+	.blackJack2 {
+		right: 14px;
+	}
 }

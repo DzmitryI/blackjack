@@ -2,11 +2,11 @@ import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { GameSessionTypes } from '../../types/gameSession';
-import './userComponent.scss';
-import IconDeal from '../icons/IconDeal';
 import { UserTypes } from '../../types/user';
 import { shuffleDeck } from '../../redux/actions/casinoActions';
+import { IconDeal } from '../icons';
 import UserDeckComponent from '../userDeckComponent';
+import './userComponent.scss';
 
 const UserComponent: FC = () => {
   const dispatch = useDispatch();

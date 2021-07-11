@@ -4,8 +4,8 @@ import BetComponent from '../betComponent';
 import UserComponent from '../userComponent';
 import DealerComponent from '../dealerComponent';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import './gameBody.scss';
 import IconWon from '../icons/IconWon';
+import './gameBody.scss';
 
 const GameBody: FC = () => {
   const { userWon } = useSelector((state: RootReducer) => state.gameSession);

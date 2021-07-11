@@ -1,8 +1,6 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import IconPrev from '../icons/IconPrev';
-import IconChip from '../icons/IconChip';
-import IconNext from '../icons/IconNext';
+import { IconPrev, IconChip, IconNext } from '../icons';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { GameSessionTypes } from '../../types/gameSession';
 import { changeChipSize } from '../helpers';

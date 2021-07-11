@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import './gamePage.scss';
 import GamesFooter from '../gameFooter/GamesFooter';
 import GameBody from '../gameBody';
+import './gamePage.scss';
 
 const GamePage: FC = () => (
   <div className="main game-wrap">

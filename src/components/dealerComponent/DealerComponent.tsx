@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import './dealerComponent.scss';
-import IconShirt from '../icons/IconShirt';
+import { IconShirt } from '../icons';
 import Diamond2 from '../icons/diamonds/Diamond2';
 import {
   Diamond10,

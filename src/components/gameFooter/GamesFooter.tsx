@@ -8,7 +8,7 @@ import './gameFooter.scss';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
-  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
+  const { dealStatus, userWon } = useSelector((state: RootReducer) => state.gameSession);
 
   return (
     <section className="game-footer">
@@ -17,7 +17,7 @@ const GamesFooter: FC = () => {
         {!dealStatus ? (<ChipsComponent />) : (<CardsActionComponent />)}
       </div>
       <div className="result-wrap">
-        <div className="result-block">
+        <div className="cash-block">
           <span>Cash:</span>
           <span>{`$${cash}`}</span>
         </div>
@@ -27,7 +27,7 @@ const GamesFooter: FC = () => {
         </div>
         <div className="result-block">
           <span>Win:</span>
-          <span>$0</span>
+          <span>{`$${userWon ? bet : 0}`}</span>
         </div>
       </div>
     </section>
