@@ -3,7 +3,7 @@
 .bet-block {
 	@include flexPosition();
 	height: 100%;
-	border: 1px solid black;
+	//border: 1px solid black;
 	flex-direction: column;
 	.btn-container {
 		@include flexPosition();

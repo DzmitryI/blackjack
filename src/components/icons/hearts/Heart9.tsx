@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { SvgProps } from '../../../types/svg';
 
 const Heart9: FC<SvgProps> = ({ width = '76', height = '114' }) => (
-  <svg width={height} height={height} viewBox="0 0 77 115" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+  <svg width={width} height={height} viewBox="0 0 77 115" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <g id="heart9">
       <g id="Group">
         <path id="Vector" fillRule="evenodd" clipRule="evenodd" d="M3.36115 0.0718079H73.5321L74.6826 0.376339L75.6188 1.32791L76.266 2.69869L76.4824 4.44908V109.733L76.266 111.408L75.6188 112.816L74.6826 113.729L73.5321 114.072H3.36115L2.20917 113.729L1.31056 112.816L0.662339 111.408L0.482422 109.733V4.44908L0.662339 2.69869L1.31056 1.32791L2.20917 0.376339L3.36115 0.0718079Z" fill="white" />

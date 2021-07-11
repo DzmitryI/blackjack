@@ -6,14 +6,11 @@
 	background: black;
 	text-align: center;
 	margin-bottom: 5px;
+	border-radius: 5px;
 }
 .user-card-wrap {
 	@include flexPosition();
-	.user-card {
-		width: 76px;
-		height: 114px;
-		border: 1px solid black;
-		border-radius: 4px;
-		margin-right: 5px;
+	svg {
+		margin: 0 1px;
 	}
 }

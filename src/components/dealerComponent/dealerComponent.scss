@@ -3,22 +3,19 @@
 .dealer-block {
 	@include flexPosition();
 	height: 100%;
-	border: 1px solid black;
+	margin-right: 65px;
 	.dealer-count {
 		width: 45px;
 		height: 25px;
 		background: black;
 		margin-right: 20px;
 		text-align: center;
+		border-radius: 5px;
 	}
 	.dealer-card-wrap {
 		@include flexPosition();
-		.dealer-card {
-			width: 65px;
-			height: 80px;
-			border: 1px solid black;
-			border-radius: 4px;
-			margin-right: 5px;
+		svg {
+			margin: 0 1px;
 		}
 	}
 }

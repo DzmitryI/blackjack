@@ -40,7 +40,7 @@ const UserComponent: FC = () => {
       if (curIndex === 4) {
         clearInterval(timerId);
       }
-    }, 2000);
+    }, 1000);
   }, [dispatch, bet, deck]);
   // console.log('dealerDeck ', dealerDeck, 'userDeck  ', userDeck, 'deck ', deck);
   return (
