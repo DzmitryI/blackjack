@@ -10,6 +10,7 @@ import IconShirt from './IconShirt';
 import IconStart from './IconStart';
 import IconStopCard from './IconStopCard';
 import IconWon from './IconWon';
+import IconQuestion from './IconQuestion';
 
 export {
   IconAddCard,
@@ -24,4 +25,5 @@ export {
   IconStart,
   IconStopCard,
   IconWon,
+  IconQuestion,
 };
