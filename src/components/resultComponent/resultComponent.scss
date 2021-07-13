@@ -1,0 +1,12 @@
+@import "src/styles/mixins";
+
+.cash-block,
+.result-block {
+	width: 63px;
+	height: 100%;
+	margin-right: 20px;
+	@include flexPosition(space-between, center)
+}
+.cash-block {
+	width: 85px;
+}

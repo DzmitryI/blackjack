@@ -3,7 +3,6 @@
 .game-footer {
 	height: 100%;
 	border-top: 1px solid black;
-	
 	display: grid;
 	grid-template-rows: 1fr 25px;
 	grid-template-columns: 1fr;
@@ -15,19 +14,9 @@
 		position: relative;
 	}
 	.result-wrap{
+		@include flexPosition();
 		background: #131313;
 		position: relative;
-		@include flexPosition();
 		border-top: 2px solid rgba(0, 0, 0, 0.15);
-		.cash-block,
-		.result-block {
-			width: 63px;
-			height: 100%;
-			margin-right: 20px;
-			@include flexPosition(space-between, center)
-		}
-		.cash-block {
-			width: 85px;
-		}
 	}
 }
