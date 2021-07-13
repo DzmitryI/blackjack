@@ -1,3 +1,1 @@
-import CardsActionComponent from './CardsActionComponent';
-
-export default CardsActionComponent;
+export { default } from './CardsActionComponent';

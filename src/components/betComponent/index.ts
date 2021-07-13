@@ -1,3 +1,1 @@
-import BetComponent from './BetComponent';
-
-export default BetComponent;
+export { default } from './BetComponent';

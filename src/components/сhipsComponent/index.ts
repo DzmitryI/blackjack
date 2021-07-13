@@ -1,3 +1,1 @@
-import ChipsComponent from './ChipsComponent';
-
-export default ChipsComponent;
+export { default } from './ChipsComponent';

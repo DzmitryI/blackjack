@@ -1,3 +1,1 @@
-import PreviewPage from './PreviewPage';
-
-export default PreviewPage;
+export { default } from './PreviewPage';

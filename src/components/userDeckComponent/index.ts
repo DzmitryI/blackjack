@@ -1,3 +1,1 @@
-import UserDeckComponent from './UserDeckComponent';
-
-export default UserDeckComponent;
+export { default } from './UserDeckComponent';

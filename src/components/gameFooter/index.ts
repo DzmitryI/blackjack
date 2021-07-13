@@ -1,3 +1,1 @@
-import GamesFooter from './GamesFooter';
-
-export default GamesFooter;
+export { default } from './GamesFooter';

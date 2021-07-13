@@ -1,3 +1,1 @@
-import GameBody from './GameBody';
-
-export default GameBody;
+export { default } from './GameBody';

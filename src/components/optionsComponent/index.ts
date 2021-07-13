@@ -1,3 +1,1 @@
-import OptionsComponent from './OptionsComponent';
-
-export default OptionsComponent;
+export { default } from './OptionsComponent';

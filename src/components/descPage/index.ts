@@ -1,3 +1,1 @@
-import DescPage from './DescPage';
-
-export default DescPage;
+export { default } from './DescPage';

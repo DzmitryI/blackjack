@@ -1,3 +1,1 @@
-import UserComponent from './UserComponent';
-
-export default UserComponent;
+export { default } from './UserComponent';
