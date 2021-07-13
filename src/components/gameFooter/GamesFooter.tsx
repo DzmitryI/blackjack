@@ -5,6 +5,7 @@ import InfoBlock from '../infoBlock';
 import ChipsComponent from '../сhipsComponent';
 import CardsActionComponent from '../cardsActionComponent';
 import './gameFooter.scss';
+import OptionsComponent from '../optionsComponent';
 
 const GamesFooter: FC = () => {
   const { cash, bet } = useSelector((state: RootReducer) => state.user);
@@ -29,6 +30,7 @@ const GamesFooter: FC = () => {
           <span>Win:</span>
           <span>{`$${userWon ? bet : 0}`}</span>
         </div>
+        <OptionsComponent />
       </div>
     </section>
   );
