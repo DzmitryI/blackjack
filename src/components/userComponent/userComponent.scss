@@ -3,7 +3,6 @@
 .user-block {
 	@include flexPosition();
 	height: 100%;
-	//border: 1px solid black;
 	flex-direction: column;
 	.dealStatus-wrap {
 		.btn-deal {
@@ -13,10 +12,7 @@
 			height: 82px;
 			border: none;
 			border-radius: 50%;
-			&:disabled {
-				cursor: not-allowed;
-			}
-			&:hover {
+			&:not([disabled]):hover {
 				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
 			}
 		}

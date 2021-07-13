@@ -1,4 +1,4 @@
-export enum OptionsTypes {
+export enum ModalTypes {
   MODAL_OPEN = 'MODAL_OPEN',
   MODAL_CLOSE = 'MODAL_CLOSE'
 }
@@ -8,11 +8,11 @@ export type InitialState = {
 }
 
 interface OpenModal {
-  type: OptionsTypes.MODAL_OPEN;
+  type: ModalTypes.MODAL_OPEN;
 }
 
 interface CloseModal {
-  type: OptionsTypes.MODAL_CLOSE;
+  type: ModalTypes.MODAL_CLOSE;
 }
 
-export type OptionsAction = OpenModal | CloseModal;
+export type ModalAction = OpenModal | CloseModal;

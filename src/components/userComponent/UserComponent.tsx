@@ -52,7 +52,7 @@ const UserComponent: FC = () => {
             onClick={onClickHandleDeal}
             className="btn-deal"
           >
-            <IconDeal fill={bet === 0 ? 'rgba(245, 84, 66, 0.3)' : 'black'} />
+            <IconDeal fill={bet === 0 ? 'rgba(0, 0, 0, 0.3)' : 'black'} />
           </button>
         </div>
       ) : (

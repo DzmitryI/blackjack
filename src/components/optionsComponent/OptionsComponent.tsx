@@ -1,7 +1,7 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { IconQuestion } from '../icons';
-import { OptionsTypes } from '../../types/options';
+import { ModalTypes } from '../../types/modal';
 import './optionsComponent.scss';
 
 const OptionsComponent: FC = () => {
@@ -9,7 +9,7 @@ const OptionsComponent: FC = () => {
   const onClickDesc: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     console.log('options');
     dispatch({
-      type: OptionsTypes.MODAL_OPEN,
+      type: ModalTypes.MODAL_OPEN,
     });
   }, [dispatch]);
 

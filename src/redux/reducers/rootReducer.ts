@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import { casinoReducer } from './casinoReducer';
 import { userReducer } from './userReducer';
 import { gameSessionReducer } from './gameSessionReducer';
-import { optionsReducer } from './optionsReducer';
+import { modalReducer } from './modalReducer';
 
 export const rootReducer = combineReducers({
   casino: casinoReducer,
   user: userReducer,
   gameSession: gameSessionReducer,
-  options: optionsReducer,
+  modal: modalReducer,
 });
 
 export type RootReducer = ReturnType<typeof rootReducer>

@@ -1,17 +1,17 @@
-import { InitialState, OptionsAction, OptionsTypes } from '../../types/options';
+import { InitialState, ModalAction, ModalTypes } from '../../types/modal';
 
 const initialState: InitialState = {
   isOpen: false,
 };
 
-export const optionsReducer = (state = initialState, action: OptionsAction): InitialState => {
+export const modalReducer = (state = initialState, action: ModalAction): InitialState => {
   switch (action.type) {
-    case OptionsTypes.MODAL_OPEN:
+    case ModalTypes.MODAL_OPEN:
       return {
         ...state,
         isOpen: true,
       };
-    case OptionsTypes.MODAL_CLOSE:
+    case ModalTypes.MODAL_CLOSE:
       return {
         ...state,
         isOpen: false,

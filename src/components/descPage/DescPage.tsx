@@ -2,15 +2,15 @@ import React, { FC, MouseEventHandler, useCallback } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import { OptionsTypes } from '../../types/options';
+import { ModalTypes } from '../../types/modal';
 import './descPage.scss';
 
 const DescPage: FC = () => {
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((state: RootReducer) => state.options);
+  const { isOpen } = useSelector((state: RootReducer) => state.modal);
   const closeModal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
-      type: OptionsTypes.MODAL_CLOSE,
+      type: ModalTypes.MODAL_CLOSE,
     });
   }, [dispatch]);
   return (
