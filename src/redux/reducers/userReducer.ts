@@ -1,11 +1,11 @@
-import { InitialState, userBet, UserTypes } from '../../types/user';
+import { InitialState, UserActions, UserTypes } from '../../types/user';
 
 const initialState: InitialState = {
   cash: 5000,
   bet: 0,
 };
 
-export const userReducer = (state = initialState, action: userBet): InitialState => {
+export const userReducer = (state = initialState, action: UserActions): InitialState => {
   // const { type, payload } = action;
   switch (action.type) {
     case UserTypes.INCREASE_BET:

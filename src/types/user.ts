@@ -35,4 +35,4 @@ export interface DecreaseCashAction {
   payload: number;
 }
 
-export type userBet = IncreaseBetAction | DecreaseBetAction | ClearBetAction | IncreaseCashAction | DecreaseCashAction;
+export type UserActions = IncreaseBetAction | DecreaseBetAction | ClearBetAction | IncreaseCashAction | DecreaseCashAction;

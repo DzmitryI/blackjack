@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UserTypes } from '../../types/user';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { IconBack, IconClear, IconChip } from '../icons';
+import { decreaseBet, increaseBet } from '../../redux/actions/userActions';
 import './betComponent.scss';
 
 const BetComponent: FC = () => {
@@ -10,29 +11,14 @@ const BetComponent: FC = () => {
   const { maxBet } = useSelector((state: RootReducer) => state.casino);
   const { bet } = useSelector((state: RootReducer) => state.user);
   const { dealStatus, chosenBet } = useSelector((state: RootReducer) => state.gameSession);
+
   const onClickDecreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    let decreaseSize: number | null = null;
-    if (chosenBet > bet) {
-      decreaseSize = bet;
-    } else {
-      decreaseSize = chosenBet;
-    }
-    dispatch({
-      type: UserTypes.DECREASE_BET,
-      payload: decreaseSize,
-    });
+    dispatch(decreaseBet({ chosenBet, bet }));
   }, [dispatch, chosenBet, bet]);
 
   const onClickIncreaseBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    let increaseSize = chosenBet;
-    if (bet + chosenBet > maxBet) {
-      increaseSize = maxBet - bet;
-    }
-    dispatch({
-      type: UserTypes.INCREASE_BET,
-      payload: increaseSize,
-    });
-  }, [dispatch, chosenBet, bet]);
+    dispatch(increaseBet({ chosenBet, bet, maxBet }));
+  }, [dispatch, chosenBet, bet, maxBet]);
 
   const onClickClearBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({

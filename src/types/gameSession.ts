@@ -9,6 +9,15 @@ export enum GameSessionTypes {
   INCREASE_IDX_DECK = 'INCREASE_IDX_DECK',
   CHECK_HANDS = 'CHECK_HANDS',
   USER_WON = 'USER_WON',
+  USER_LOSE = 'USER_LOSE',
+  USER_TIE = 'USER_TIE',
+}
+
+export enum UserStatus {
+  WON = 'WON',
+  LOSE = 'LOSE',
+  TIE = 'TIE',
+  START = 'START',
 }
 
 export type InitialState = {
@@ -20,7 +29,7 @@ export type InitialState = {
   userDeck: Deck,
   idxDeck: number,
   checkHands: boolean,
-  userWon: boolean,
+  userWon: UserStatus,
 }
 
 interface ChangeDeal {
@@ -58,5 +67,13 @@ interface UserWon {
   type: GameSessionTypes.USER_WON;
 }
 
+interface UserLose {
+  type: GameSessionTypes.USER_LOSE;
+}
+
+interface UserTie {
+  type: GameSessionTypes.USER_TIE;
+}
+
 export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck
-  | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon;
+  | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon | UserLose | UserTie;

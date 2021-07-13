@@ -1,4 +1,6 @@
-import { GameSessionTypes, GameSessionAction, InitialState } from '../../types/gameSession';
+import {
+  GameSessionAction, GameSessionTypes, InitialState, UserStatus,
+} from '../../types/gameSession';
 
 const initialState: InitialState = {
   dealStatus: false,
@@ -9,7 +11,7 @@ const initialState: InitialState = {
   userDeck: [],
   idxDeck: 4,
   checkHands: false,
-  userWon: false,
+  userWon: UserStatus.START,
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
@@ -50,7 +52,17 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
     case GameSessionTypes.USER_WON:
       return {
         ...state,
-        userWon: true,
+        userWon: UserStatus.WON,
+      };
+    case GameSessionTypes.USER_LOSE:
+      return {
+        ...state,
+        userWon: UserStatus.LOSE,
+      };
+    case GameSessionTypes.USER_TIE:
+      return {
+        ...state,
+        userWon: UserStatus.TIE,
       };
     case GameSessionTypes.CLEAR_CUR_GAME:
       return {
@@ -62,7 +74,7 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         userDeck: [],
         idxDeck: 4,
         checkHands: false,
-        userWon: false,
+        userWon: UserStatus.START,
       };
     default:
       return state;
