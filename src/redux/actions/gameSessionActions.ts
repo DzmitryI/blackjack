@@ -3,15 +3,16 @@ import { GameSessionAction, GameSessionTypes } from '../../types/gameSession';
 interface GameSessionProps {
   allDealerPoints: number;
   userPoints: number;
-  maxBet: number;
+  maxCount: number;
 }
 
-export function gameSessionResult({ allDealerPoints, userPoints, maxBet }: GameSessionProps): GameSessionAction {
-  if (allDealerPoints > maxBet || allDealerPoints < userPoints) {
+export function gameSessionResult({ allDealerPoints, userPoints, maxCount }: GameSessionProps): GameSessionAction {
+  if (allDealerPoints > maxCount || allDealerPoints < userPoints) {
     return {
       type: GameSessionTypes.USER_WON,
     };
-  } if (allDealerPoints === userPoints) {
+  }
+  if (allDealerPoints === userPoints) {
     return {
       type: GameSessionTypes.USER_TIE,
     };
