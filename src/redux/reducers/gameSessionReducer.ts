@@ -4,6 +4,7 @@ import {
 
 const initialState: InitialState = {
   dealStatus: false,
+  startDealingCards: false,
   dealerPoints: [],
   userPoints: 0,
   chosenBet: 1,
@@ -64,9 +65,15 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         ...state,
         userWon: UserStatus.TIE,
       };
+    case GameSessionTypes.CHANGE_START_DEALING_CARDS:
+      return {
+        ...state,
+        startDealingCards: !state.startDealingCards,
+      };
     case GameSessionTypes.CLEAR_CUR_GAME:
       return {
         dealStatus: false,
+        startDealingCards: false,
         dealerPoints: [],
         userPoints: 0,
         chosenBet: 1,
@@ -76,6 +83,7 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         checkHands: false,
         userWon: UserStatus.START,
       };
+
     default:
       return state;
   }

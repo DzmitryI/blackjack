@@ -22,7 +22,9 @@ const UserComponent: FC = () => {
       payload: bet,
     });
     dispatch(shuffleDeck(deck));
-
+    dispatch({
+      type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
+    });
     let curIndex = 0;
     const timerId = setInterval(() => {
       if (curIndex % 2 === 0) {
@@ -38,10 +40,14 @@ const UserComponent: FC = () => {
       }
       curIndex += 1;
       if (curIndex === 4) {
+        dispatch({
+          type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
+        });
         clearInterval(timerId);
       }
     }, 1000);
   }, [dispatch, bet, deck]);
+
   return (
     <div className="user-block">
       {!dealStatus ? (

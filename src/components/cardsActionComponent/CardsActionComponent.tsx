@@ -3,18 +3,18 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GameSessionTypes } from '../../types/gameSession';
-import { RootReducer } from '../../redux/reducers/rootReducer';
-import { IconNewGame, IconAddCard, IconStopCard } from '../icons';
 import { UserTypes } from '../../types/user';
+import { RootReducer } from '../../redux/reducers/rootReducer';
 import { gameSessionResult } from '../../redux/actions/gameSessionActions';
+import { IconNewGame, IconAddCard, IconStopCard } from '../icons';
 import './cardsActionComponent.scss';
 
 const CardsActionComponent: FC = () => {
   const dispatch = useDispatch();
-  const { deck, maxBet, maxCount } = useSelector((state: RootReducer) => state.casino);
+  const { deck, maxCount } = useSelector((state: RootReducer) => state.casino);
   const { bet } = useSelector((state: RootReducer) => state.user);
   const {
-    idxDeck, userPoints, dealerPoints, checkHands,
+    idxDeck, userPoints, dealerPoints, checkHands, startDealingCards,
   } = useSelector((state: RootReducer) => state.gameSession);
 
   const onClickAddCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
@@ -75,10 +75,10 @@ const CardsActionComponent: FC = () => {
     <div className="cards-action-wrap">
       { userPoints < maxCount && !checkHands ? (
         <div className="action-wrap">
-          <button type="button" onClick={onClickStopCard} className="btn-stop-card">
+          <button type="button" disabled={startDealingCards} onClick={onClickStopCard} className="btn-stop-card">
             <IconStopCard />
           </button>
-          <button type="button" onClick={onClickAddCard} className="btn-add-card">
+          <button type="button" disabled={startDealingCards} onClick={onClickAddCard} className="btn-add-card">
             <IconAddCard />
           </button>
         </div>

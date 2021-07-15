@@ -6,7 +6,6 @@ const initialState: InitialState = {
 };
 
 export const userReducer = (state = initialState, action: UserActions): InitialState => {
-  // const { type, payload } = action;
   switch (action.type) {
     case UserTypes.INCREASE_BET:
       return {
