@@ -28,24 +28,25 @@
 	.chip-block {
 		@include flexPosition();
 		padding: 0;
-		width: 40px;
-		height: 40px;
+		width: 42px;
+		height: 42px;
 		border-radius: 50%;
 		background: none;
 		border: none;
 		position: relative;
-		margin-left: 5px;
+		margin-left: 3px;
+		animation: translatingChip 500ms ease-in-out 1;
 		&:hover .chip:not(.active) {
 			border: 2px solid white;
-			animation: turn 2000ms ease-in-out 1 ;
+			animation: turnChip 1000ms ease-in-out 1 ;
 		}
 		&:last-child {
-			margin-right: 5px;
+			margin-right: 3px;
 		}
 		.chip-title {
 			@include flexPosition();
-			width: 40px;
-			height: 40px;
+			width: 43px;
+			height: 42px;
 			border-radius: 50%;
 			position: absolute;
 			top: 0;
@@ -55,9 +56,13 @@
 		.chip {
 			border-radius: 50%;
 		}
-		@keyframes turn {
+		@keyframes turnChip {
 			0%   { transform: rotate(0deg); }
 			100% { transform: rotate(360deg); }
+		}
+		@keyframes translatingChip {
+			0%   { transform: scale(0); }
+			100% { transform: scale(1); }
 		}
 	}
 	.active {
