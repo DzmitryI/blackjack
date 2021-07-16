@@ -8,6 +8,7 @@ import './descPage.scss';
 const DescPage: FC = () => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((state: RootReducer) => state.modal);
+
   const closeModal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: ModalTypes.MODAL_CLOSE,

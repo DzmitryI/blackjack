@@ -7,7 +7,7 @@ interface GameSessionProps {
 }
 
 export function gameSessionResult({ allDealerPoints, userPoints, maxCount }: GameSessionProps): GameSessionAction {
-  if (allDealerPoints > maxCount || allDealerPoints < userPoints) {
+  if (allDealerPoints >= maxCount || (allDealerPoints < userPoints && userPoints < maxCount)) {
     return {
       type: GameSessionTypes.USER_WON,
     };
@@ -15,6 +15,11 @@ export function gameSessionResult({ allDealerPoints, userPoints, maxCount }: Gam
   if (allDealerPoints === userPoints) {
     return {
       type: GameSessionTypes.USER_TIE,
+    };
+  }
+  if (userPoints >= maxCount) {
+    return {
+      type: GameSessionTypes.USER_BUST,
     };
   }
   return {

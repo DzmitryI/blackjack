@@ -42,6 +42,7 @@ const GameBody: FC = () => {
           { userWon === UserStatus.WON && (<p className="won-title">YOU WON:</p>)}
           { userWon === UserStatus.LOSE && (<p className="won-title">no win</p>)}
           { userWon === UserStatus.TIE && (<p className="won-title">no one&apos;s won</p>)}
+          { userWon === UserStatus.BUST && (<p className="won-title">BUST</p>)}
           <div className="won-wrap">
             { userWon === UserStatus.WON && (<IconWon />)}
             { userWon === UserStatus.WON && (<span>{`$${bet}`}</span>)}

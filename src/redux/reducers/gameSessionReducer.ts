@@ -65,6 +65,11 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         ...state,
         userWon: UserStatus.TIE,
       };
+    case GameSessionTypes.USER_BUST:
+      return {
+        ...state,
+        userWon: UserStatus.BUST,
+      };
     case GameSessionTypes.CHANGE_START_DEALING_CARDS:
       return {
         ...state,

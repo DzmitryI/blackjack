@@ -37,6 +37,7 @@
 		margin-left: 5px;
 		&:hover .chip {
 			border: 2px solid white;
+			animation: turn 2000ms ease-in-out 1 ;
 		}
 		&:last-child {
 			margin-right: 5px;
@@ -53,6 +54,10 @@
 		}
 		.chip {
 			border-radius: 50%;
+		}
+		@keyframes turn {
+			0%   { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
 		}
 	}
 	.active {

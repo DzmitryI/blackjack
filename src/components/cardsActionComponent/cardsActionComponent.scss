@@ -18,7 +18,7 @@
 			border: none;
 			background: none;
 			transition: 500ms ease-in-out;
-			animation: translating 2000ms ease-in-out 1 ;
+			animation: translating 3000ms ease-in-out 1 ;
 			&:not([disabled]):hover {
 				transform: scale(1.2)
 			}
@@ -36,7 +36,7 @@
 		border: none;
 		background: none;
 		transition: 500ms ease-in-out;
-		animation: translating 1000ms ease-in-out 1 ;
+		animation: translating 2000ms ease-in-out 1 ;
 		&:hover {
 			transform: scale(1.2)
 		}

@@ -25,6 +25,7 @@ const BetComponent: FC = () => {
       type: UserTypes.CLEAR_BET,
     });
   }, [dispatch]);
+
   return (
     <div className="bet-block">
       <div className="btn-container">

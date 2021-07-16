@@ -28,10 +28,10 @@ const CardsActionComponent: FC = () => {
   }, [dispatch, idxDeck]);
 
   useEffect(() => {
-    if (checkHands) {
+    if (checkHands || userPoints >= maxCount) {
       const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
       dispatch(gameSessionResult({ allDealerPoints, userPoints, maxCount }));
-      if (allDealerPoints > maxCount || allDealerPoints < userPoints) {
+      if (allDealerPoints >= maxCount || (allDealerPoints < userPoints && userPoints < maxCount)) {
         dispatch({
           type: UserTypes.INCREASE_CASH,
           payload: bet * 2,
@@ -44,7 +44,7 @@ const CardsActionComponent: FC = () => {
         });
       }
     }
-  }, [dealerPoints, checkHands, maxCount]);
+  }, [dealerPoints, checkHands, maxCount, userPoints]);
 
   const onClickStopCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
