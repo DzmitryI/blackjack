@@ -6,6 +6,7 @@ import ChipsComponent from '../сhipsComponent';
 import CardsActionComponent from '../cardsActionComponent';
 import OptionsComponent from '../optionsComponent';
 import ResultComponent from '../resultComponent';
+import { UserStatus } from '../../types/gameSession';
 import './gameFooter.scss';
 
 const GamesFooter: FC = () => {
@@ -21,7 +22,7 @@ const GamesFooter: FC = () => {
       <div className="result-wrap">
         <ResultComponent className="cash-block" title="Cash" value={cash} />
         <ResultComponent className="result-block" title="Bet" value={bet} />
-        <ResultComponent className="result-block" title="Win" value={userWon ? bet : 0} />
+        <ResultComponent className="result-block" title="Win" value={userWon === UserStatus.WON ? bet : 0} />
         <OptionsComponent />
       </div>
     </section>

@@ -35,7 +35,7 @@
 		border: none;
 		position: relative;
 		margin-left: 5px;
-		&:hover .chip {
+		&:hover .chip:not(.active) {
 			border: 2px solid white;
 			animation: turn 2000ms ease-in-out 1 ;
 		}

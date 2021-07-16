@@ -31,7 +31,6 @@
 			margin: 0 7px;
 			padding: 0;
 			&:disabled {
-				cursor: not-allowed;
 				box-shadow: 0 4px 30px rgba(66, 135, 245, 0.7);
 				border: 3px solid #4287f5;
 			}
@@ -40,8 +39,8 @@
 			}
 			.chip-title {
 				@include flexPosition();
-				width: 52px;
-				height: 52px;
+				width: 54px;
+				height: 54px;
 				border-radius: 50%;
 				position: absolute;
 				top: 0;

@@ -46,7 +46,7 @@ const BetComponent: FC = () => {
         >
           {bet > 0 && (
             <>
-              <IconChip fill="black" width="50" height="50" />
+              <IconChip fill="black" width="54" height="54" />
               <span className="chip-title">{bet}</span>
             </>
           )}
