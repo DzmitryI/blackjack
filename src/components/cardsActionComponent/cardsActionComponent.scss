@@ -18,13 +18,14 @@
 			border: none;
 			background: none;
 			transition: 500ms ease-in-out;
-			animation: translating 3000ms ease-in-out 1 ;
+			animation: translating 4000ms ease-in-out 1 ;
 			&:not([disabled]):hover {
 				transform: scale(1.2)
 			}
 		}
 		@keyframes translating {
 			0%   { transform: translateY(50px) scale(0); }
+			50%   { transform: translateY(50px) scale(0); }
 			100% { transform: translateY(0) scale(1); }
 		}
 	}

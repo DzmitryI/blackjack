@@ -24,7 +24,7 @@ const GameBody: FC = () => {
         dispatch({
           type: UserTypes.CLEAR_BET,
         });
-      }, 3000);
+      }, 4000);
     }
   }, [userWon]);
 
