@@ -7,45 +7,16 @@ import { shuffleDeck } from '../../redux/actions/casinoActions';
 import { IconDeal } from '../icons';
 import UserDeckComponent from '../userDeckComponent';
 import './userComponent.scss';
+import { startSession } from '../../redux/actions/gameSessionActions';
 
 const UserComponent: FC = () => {
   const dispatch = useDispatch();
   const { bet } = useSelector((state: RootReducer) => state.user);
   const { deck } = useSelector((state: RootReducer) => state.casino);
   const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
+
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    dispatch({
-      type: GameSessionTypes.CHANGE_DEAL,
-    });
-    dispatch({
-      type: UserTypes.DECREASE_CASH,
-      payload: bet,
-    });
-    dispatch(shuffleDeck(deck));
-    dispatch({
-      type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
-    });
-    let curIndex = 0;
-    const timerId = setInterval(() => {
-      if (curIndex % 2 === 0) {
-        dispatch({
-          type: GameSessionTypes.CHANGE_USER_DECK,
-          payload: deck[curIndex],
-        });
-      } else {
-        dispatch({
-          type: GameSessionTypes.CHANGE_DEALER_DECK,
-          payload: deck[curIndex],
-        });
-      }
-      curIndex += 1;
-      if (curIndex === 4) {
-        dispatch({
-          type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
-        });
-        clearInterval(timerId);
-      }
-    }, 1000);
+    dispatch(startSession({ bet, deck }));
   }, [dispatch, bet, deck]);
 
   return (

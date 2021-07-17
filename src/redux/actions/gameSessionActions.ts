@@ -1,7 +1,50 @@
 import { Dispatch } from 'redux';
 import { GameSessionAction, GameSessionTypes } from '../../types/gameSession';
 import { UserActions, UserTypes } from '../../types/user';
-import { Deck } from '../../types/casino';
+import { CasinoAction, Deck } from '../../types/casino';
+import { shuffleDeck } from './casinoActions';
+
+interface StartSession {
+  bet: number;
+  deck: Deck
+}
+
+export function startSession({ bet, deck }: StartSession) {
+  return (dispatch: Dispatch<GameSessionAction | UserActions | CasinoAction>) => {
+    dispatch({
+      type: GameSessionTypes.CHANGE_DEAL,
+    });
+    dispatch({
+      type: UserTypes.DECREASE_CASH,
+      payload: bet,
+    });
+    dispatch(shuffleDeck(deck));
+    dispatch({
+      type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
+    });
+    let curIndex = 0;
+    const timerId = setInterval(() => {
+      if (curIndex % 2 === 0) {
+        dispatch({
+          type: GameSessionTypes.CHANGE_USER_DECK,
+          payload: deck[curIndex],
+        });
+      } else {
+        dispatch({
+          type: GameSessionTypes.CHANGE_DEALER_DECK,
+          payload: deck[curIndex],
+        });
+      }
+      curIndex += 1;
+      if (curIndex === 4) {
+        dispatch({
+          type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
+        });
+        clearInterval(timerId);
+      }
+    }, 500);
+  };
+}
 
 interface SessionResult {
   userPoints: number;

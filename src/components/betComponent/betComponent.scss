@@ -61,7 +61,7 @@
 	.blackJack0,
 	.blackJack1,
 	.blackJack2 {
-		animation: turnSpin 3000ms ease-in-out 1;
+		animation: turnSpin 4000ms ease-in-out 1;
 		position: absolute;
 		top: 0;
 	}
@@ -76,7 +76,7 @@
 	}
 	@keyframes turnSpin {
 		0%   { transform: rotateY(0deg); }
-		50% { transform: rotateY(360deg); }
+		50%   { transform: rotateY(360deg); }
 		100%   { transform: rotateY(0deg); }
 	}
 }

@@ -2,7 +2,7 @@ import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { madeDeck } from '../../redux/actions/casinoActions';
-import IconStart from '../icons/IconStart';
+import { IconStart } from '../icons';
 import './previewPage.scss';
 
 const PreviewPage: FC = () => {

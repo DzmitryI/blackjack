@@ -11,14 +11,14 @@
 		margin-right: 20px;
 		text-align: center;
 		border-radius: 5px;
-		animation: translatingCount 3000ms ease-in-out 1;
+		animation: translatingCount 600ms ease-in-out 1;
 	}
 	.dealer-card-wrap {
 		min-width: 136px;
 		@include flexPosition(flex-start, center);
 		svg {
 			margin: 0 1px;
-			animation: translatingCard 1000ms ease-in-out 1 ;
+			animation: translatingCard 500ms ease-in-out 1 ;
 		}
 		@keyframes translatingCard {
 			0%   { transform: translateY(50px) scale(0) rotate(0deg); }

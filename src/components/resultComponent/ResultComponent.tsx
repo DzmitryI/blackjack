@@ -10,8 +10,7 @@ interface ComponentProps {
 const ResultComponent: FC<ComponentProps> = ({ className, title, value }) => (
   <div className={className}>
     <span>
-      {title}
-      :
+      {`${title}:`}
     </span>
     <span>{`$${value}`}</span>
   </div>
