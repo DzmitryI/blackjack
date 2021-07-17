@@ -26,7 +26,8 @@
   "scripts": {
     "start": "react-scripts start --no-cache",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "jest --watch-all --coverage",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -51,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "ts-jest": "^26.5.6"
   }
 }
