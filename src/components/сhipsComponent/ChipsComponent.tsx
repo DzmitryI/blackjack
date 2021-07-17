@@ -5,6 +5,7 @@ import { RootReducer } from '../../redux/reducers/rootReducer';
 import { GameSessionTypes } from '../../types/gameSession';
 import { changeChipSize } from '../helpers';
 import './chipsComponent.scss';
+import { changeSizeBet } from '../../redux/actions/gameSessionActions';
 
 const ChipsComponent: FC = () => {
   const dispatch = useDispatch();
@@ -12,26 +13,15 @@ const ChipsComponent: FC = () => {
   const { chosenBet } = useSelector((state: RootReducer) => state.gameSession);
 
   const onclickPrevBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    const value = changeChipSize(chips, chosenBet, 'dec');
-    dispatch({
-      type: GameSessionTypes.CHANGE_SIZE_BET,
-      payload: value,
-    });
+    dispatch(changeSizeBet({ chips, chosenBet, type: 'dec' }));
   }, [dispatch, chosenBet]);
 
   const onclickNextBet: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    const value = changeChipSize(chips, chosenBet, 'inc');
-    dispatch({
-      type: GameSessionTypes.CHANGE_SIZE_BET,
-      payload: value,
-    });
+    dispatch(changeSizeBet({ chips, chosenBet, type: 'inc' }));
   }, [dispatch, chosenBet]);
 
   const onClickChip: MouseEventHandler<HTMLButtonElement> = useCallback(({ currentTarget }) => {
-    dispatch({
-      type: GameSessionTypes.CHANGE_SIZE_BET,
-      payload: +currentTarget.id,
-    });
+    dispatch(changeSizeBet({ chips, chosenBet: +currentTarget.id }));
   }, [dispatch]);
 
   return (

@@ -1,8 +1,9 @@
 import { Dispatch } from 'redux';
 import { GameSessionAction, GameSessionTypes } from '../../types/gameSession';
 import { UserActions, UserTypes } from '../../types/user';
-import { CasinoAction, Deck } from '../../types/casino';
+import { CasinoAction, Chips, Deck } from '../../types/casino';
 import { shuffleDeck } from './casinoActions';
+import { changeChipSize } from '../../components/helpers';
 
 interface StartSession {
   bet: number;
@@ -43,6 +44,25 @@ export function startSession({ bet, deck }: StartSession) {
         clearInterval(timerId);
       }
     }, 500);
+  };
+}
+
+interface ChangeSizeBet {
+  chips: Chips;
+  chosenBet: number;
+  type?: string;
+}
+
+export function changeSizeBet({ chips, chosenBet, type }: ChangeSizeBet) {
+  return (dispatch: Dispatch<GameSessionAction>) => {
+    let value = chosenBet;
+    if (type) {
+      value = changeChipSize(chips, chosenBet, type);
+    }
+    dispatch({
+      type: GameSessionTypes.CHANGE_SIZE_BET,
+      payload: value,
+    });
   };
 }
 

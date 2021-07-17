@@ -5,16 +5,18 @@ import './infoBlock.scss';
 
 const InfoBlock: FC = () => {
   const { minBet, maxBet } = useSelector((state: RootReducer) => state.casino);
+
+  const renderUnit = (title: string, value: number) => (
+    <div className="desc-block">
+      <span>{`${title}:`}</span>
+      <span>{`$${value}`}</span>
+    </div>
+  );
+
   return (
     <div className="info-block">
-      <div className="desc-block">
-        <span>MIN:</span>
-        <span>{`$${minBet}`}</span>
-      </div>
-      <div className="desc-block">
-        <span>MAX:</span>
-        <span>{`$${maxBet}`}</span>
-      </div>
+      {renderUnit('MIN', minBet)}
+      {renderUnit('MAX', maxBet)}
     </div>
   );
 };
