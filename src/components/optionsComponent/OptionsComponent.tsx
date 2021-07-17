@@ -6,6 +6,7 @@ import './optionsComponent.scss';
 
 const OptionsComponent: FC = () => {
   const dispatch = useDispatch();
+
   const onClickDesc: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: ModalTypes.MODAL_OPEN,

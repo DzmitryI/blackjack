@@ -8,6 +8,7 @@ import './previewPage.scss';
 const PreviewPage: FC = () => {
   const dispatch = useDispatch();
   const { values, suits } = useSelector((state: RootReducer) => state.casino);
+
   const onClickHandleStart: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch(madeDeck({ values, suits }));
   }, [dispatch]);

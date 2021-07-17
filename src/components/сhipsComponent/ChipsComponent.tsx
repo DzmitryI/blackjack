@@ -2,10 +2,8 @@ import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconPrev, IconChip, IconNext } from '../icons';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import { GameSessionTypes } from '../../types/gameSession';
-import { changeChipSize } from '../helpers';
-import './chipsComponent.scss';
 import { changeSizeBet } from '../../redux/actions/gameSessionActions';
+import './chipsComponent.scss';
 
 const ChipsComponent: FC = () => {
   const dispatch = useDispatch();

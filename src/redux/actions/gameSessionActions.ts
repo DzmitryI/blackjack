@@ -129,3 +129,17 @@ export function checkSessionResult({ dealerPoints, deck, idxDeck }: CheckSession
     }
   };
 }
+
+export function clearSessionResult() {
+  return (dispatch: Dispatch<GameSessionAction | UserActions>) => {
+    const timerID = setTimeout(() => {
+      dispatch({
+        type: GameSessionTypes.CLEAR_CUR_GAME,
+      });
+      dispatch({
+        type: UserTypes.CLEAR_BET,
+      });
+      clearTimeout(timerID);
+    }, 4000);
+  };
+}

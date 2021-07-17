@@ -14,6 +14,7 @@ const DescPage: FC = () => {
       type: ModalTypes.MODAL_CLOSE,
     });
   }, [dispatch]);
+
   return (
     <Modal
       className="modal-page"
@@ -32,7 +33,6 @@ const DescPage: FC = () => {
           <li>
             The object of the game is to create a hand with a value that is equal to or closer to 21 than
             dealer&apos;s hand without going over
-            {' '}
           </li>
           <li>
             Number cars (2-10) count as face value, Aces count as either 11, and Kings, Queens, and Jacks count
