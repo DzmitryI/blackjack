@@ -38,61 +38,61 @@ export type InitialState = {
   userWon: UserStatus,
 }
 
-interface ChangeDeal {
+export interface ChangeDeal {
   type: GameSessionTypes.CHANGE_DEAL;
 }
 
-interface ChangeSizeBet {
+export interface ChangeSizeBet {
   type: GameSessionTypes.CHANGE_SIZE_BET;
   payload: number;
 }
 
-interface ChangeDealerDeck {
+export interface ChangeDealerDeck {
   type: GameSessionTypes.CHANGE_DEALER_DECK;
   payload: ItemDeck;
 }
 
-interface ChangeUserDeck {
+export interface ChangeUserDeck {
   type: GameSessionTypes.CHANGE_USER_DECK;
   payload: ItemDeck;
 }
 
-interface ClearDeck {
-  type: GameSessionTypes.CLEAR_CUR_GAME;
-}
-
-interface IncreaseIdxDeck {
+export interface IncreaseIdxDeck {
   type: GameSessionTypes.INCREASE_IDX_DECK;
 }
 
-interface CheckHands {
+export interface CheckHands {
   type: GameSessionTypes.CHECK_HANDS;
 }
 
-interface UserWon {
+export interface UserWon {
   type: GameSessionTypes.USER_WON;
 }
 
-interface UserLose {
-  type: GameSessionTypes.USER_LOSE;
-}
-
-interface UserTie {
-  type: GameSessionTypes.USER_TIE;
-}
-
-interface UserBust {
-  type: GameSessionTypes.USER_BUST;
-}
-
-interface UserBlackJack {
+export interface UserBlackJack {
   type: GameSessionTypes.USER_BLACK_JACK;
 }
 
-interface changeStartDealingCards {
+export interface UserLose {
+  type: GameSessionTypes.USER_LOSE;
+}
+
+export interface UserTie {
+  type: GameSessionTypes.USER_TIE;
+}
+
+export interface UserBust {
+  type: GameSessionTypes.USER_BUST;
+}
+
+export interface ChangeStartDealingCards {
   type: GameSessionTypes.CHANGE_START_DEALING_CARDS;
 }
 
+export interface ClearDeck {
+  type: GameSessionTypes.CLEAR_CUR_GAME;
+}
+
 export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck |
-  changeStartDealingCards | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon | UserLose | UserTie | UserBust |
+  ChangeStartDealingCards | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon | UserLose | UserTie | UserBust |
   UserBlackJack;

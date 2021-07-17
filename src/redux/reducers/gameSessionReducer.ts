@@ -2,7 +2,7 @@ import {
   GameSessionAction, GameSessionTypes, InitialState, UserStatus,
 } from '../../types/gameSession';
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   dealStatus: false,
   startDealingCards: false,
   dealerPoints: [],
@@ -92,7 +92,6 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
         checkHands: false,
         userWon: UserStatus.START,
       };
-
     default:
       return state;
   }
