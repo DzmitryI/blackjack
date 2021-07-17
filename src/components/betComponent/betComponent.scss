@@ -15,9 +15,14 @@
 			background: none;
 			padding: 0;
 			border-radius: 50%;
+			animation: translatingBtn 500ms ease-in-out 1;
 			&:hover {
 				border: 1px solid white;
 				box-shadow: 0 4px 30px rgba(255, 255, 255, 0.7);
+			}
+			@keyframes translatingBtn {
+				0%   { transform: scale(0); }
+				100% { transform: scale(1); }
 			}
 		}
 		.btn-bet {
@@ -71,6 +76,7 @@
 	}
 	@keyframes turnSpin {
 		0%   { transform: rotateY(0deg); }
-		100% { transform: rotateY(360deg); }
+		50% { transform: rotateY(360deg); }
+		100%   { transform: rotateY(0deg); }
 	}
 }

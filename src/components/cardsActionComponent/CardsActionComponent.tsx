@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GameSessionTypes } from '../../types/gameSession';
 import { UserTypes } from '../../types/user';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import { gameSessionResult } from '../../redux/actions/gameSessionActions';
+import { checkSessionResult, sessionResult } from '../../redux/actions/gameSessionActions';
 import { IconNewGame, IconAddCard, IconStopCard } from '../icons';
 import './cardsActionComponent.scss';
 
@@ -17,6 +17,14 @@ const CardsActionComponent: FC = () => {
     idxDeck, userPoints, dealerPoints, checkHands, startDealingCards,
   } = useSelector((state: RootReducer) => state.gameSession);
 
+  useEffect(() => {
+    if (checkHands || userPoints >= maxCount) {
+      dispatch(sessionResult({
+        dealerPoints, userPoints, maxCount, bet,
+      }));
+    }
+  }, [dealerPoints, checkHands, maxCount, userPoints]);
+
   const onClickAddCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
       type: GameSessionTypes.CHANGE_USER_DECK,
@@ -27,40 +35,9 @@ const CardsActionComponent: FC = () => {
     });
   }, [dispatch, idxDeck]);
 
-  useEffect(() => {
-    if (checkHands || userPoints >= maxCount) {
-      const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
-      dispatch(gameSessionResult({ allDealerPoints, userPoints, maxCount }));
-      if (allDealerPoints >= maxCount || (allDealerPoints < userPoints && userPoints < maxCount)) {
-        dispatch({
-          type: UserTypes.INCREASE_CASH,
-          payload: bet * 2,
-        });
-      }
-      if (allDealerPoints === userPoints) {
-        dispatch({
-          type: UserTypes.INCREASE_CASH,
-          payload: bet,
-        });
-      }
-    }
-  }, [dealerPoints, checkHands, maxCount, userPoints]);
-
   const onClickStopCard: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
-    dispatch({
-      type: GameSessionTypes.CHECK_HANDS,
-    });
-    if (allDealerPoints < 17) {
-      dispatch({
-        type: GameSessionTypes.CHANGE_DEALER_DECK,
-        payload: deck[idxDeck],
-      });
-      dispatch({
-        type: GameSessionTypes.INCREASE_IDX_DECK,
-      });
-    }
-  }, [dispatch, dealerPoints, userPoints]);
+    dispatch(checkSessionResult({ dealerPoints, deck, idxDeck }));
+  }, [dispatch, dealerPoints]);
 
   const onClickNewGame: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     dispatch({
@@ -82,12 +59,11 @@ const CardsActionComponent: FC = () => {
             <IconAddCard />
           </button>
         </div>
-      )
-        : (
-          <button type="button" onClick={onClickNewGame} className="btn-new-game">
-            <IconNewGame />
-          </button>
-        )}
+      ) : (
+        <button type="button" onClick={onClickNewGame} className="btn-new-game">
+          <IconNewGame />
+        </button>
+      )}
     </div>
   );
 };

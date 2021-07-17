@@ -17,4 +17,14 @@ const changeChipSize = (chips: Chips, chosenBet: number, direction: string): num
   return value;
 };
 
-export { changeChipSize };
+const checkColor = (chips: Chips, bet: number): string => {
+  let curColor = '';
+  chips.forEach((chip) => {
+    if (bet >= chip.value) {
+      curColor = chip.color;
+    }
+  });
+  return curColor;
+};
+
+export { changeChipSize, checkColor };

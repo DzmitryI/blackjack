@@ -4,11 +4,12 @@ import { UserTypes } from '../../types/user';
 import { RootReducer } from '../../redux/reducers/rootReducer';
 import { IconBack, IconClear, IconChip } from '../icons';
 import { decreaseBet, increaseBet } from '../../redux/actions/userActions';
+import { checkColor } from '../helpers';
 import './betComponent.scss';
 
 const BetComponent: FC = () => {
   const dispatch = useDispatch();
-  const { maxBet } = useSelector((state: RootReducer) => state.casino);
+  const { maxBet, chips } = useSelector((state: RootReducer) => state.casino);
   const { bet } = useSelector((state: RootReducer) => state.user);
   const { dealStatus, chosenBet } = useSelector((state: RootReducer) => state.gameSession);
 
@@ -46,7 +47,7 @@ const BetComponent: FC = () => {
         >
           {bet > 0 && (
             <>
-              <IconChip fill="black" width="54" height="54" />
+              <IconChip fill={checkColor(chips, bet)} width="54" height="54" />
               <span className="chip-title">{bet}</span>
             </>
           )}
@@ -57,9 +58,9 @@ const BetComponent: FC = () => {
           </button>
         )}
       </div>
-      <IconChip fill="gold" width="15" height="15" className="blackJack0" />
-      <IconChip fill="blue" width="15" height="15" className="blackJack1" />
-      <IconChip fill="yellow" width="15" height="15" className="blackJack2" />
+      {!dealStatus && (<IconChip fill="gold" width="15" height="15" className="blackJack0" />)}
+      {!dealStatus && (<IconChip fill="blue" width="15" height="15" className="blackJack1" />)}
+      {!dealStatus && (<IconChip fill="yellow" width="15" height="15" className="blackJack2" />)}
     </div>
   );
 };
