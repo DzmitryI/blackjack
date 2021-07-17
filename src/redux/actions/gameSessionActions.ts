@@ -7,11 +7,16 @@ import { changeChipSize } from '../../components/helpers';
 
 interface StartSession {
   bet: number;
-  deck: Deck
+  deck: Deck;
+  userPoints: number;
+  maxCount: number;
+  dealerPoints: number[];
 }
 
-export function startSession({ bet, deck }: StartSession) {
-  return (dispatch: Dispatch<GameSessionAction | UserActions | CasinoAction>) => {
+export function startSession({
+  bet, deck, maxCount, dealerPoints, userPoints,
+}: StartSession) {
+  return (dispatch: Dispatch<GameSessionAction | UserActions | CasinoAction>): void => {
     dispatch({
       type: GameSessionTypes.CHANGE_DEAL,
     });
@@ -41,6 +46,17 @@ export function startSession({ bet, deck }: StartSession) {
         dispatch({
           type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
         });
+
+        const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
+        if (userPoints === maxCount && allDealerPoints !== maxCount) {
+          dispatch({
+            type: UserTypes.INCREASE_CASH,
+            payload: bet * 2.5,
+          });
+          dispatch({
+            type: GameSessionTypes.USER_BLACK_JACK,
+          });
+        }
         clearInterval(timerId);
       }
     }, 500);
@@ -54,7 +70,7 @@ interface ChangeSizeBet {
 }
 
 export function changeSizeBet({ chips, chosenBet, type }: ChangeSizeBet) {
-  return (dispatch: Dispatch<GameSessionAction>) => {
+  return (dispatch: Dispatch<GameSessionAction>): void => {
     let value = chosenBet;
     if (type) {
       value = changeChipSize(chips, chosenBet, type);
@@ -76,7 +92,7 @@ interface SessionResult {
 export function sessionResult({
   dealerPoints, maxCount, userPoints, bet,
 }: SessionResult) {
-  return (dispatch: Dispatch<GameSessionAction | UserActions>) => {
+  return (dispatch: Dispatch<GameSessionAction | UserActions>): void => {
     const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
     if (allDealerPoints >= maxCount || (allDealerPoints < userPoints && userPoints < maxCount)) {
       dispatch({
@@ -113,7 +129,7 @@ interface CheckSessionResult {
 }
 
 export function checkSessionResult({ dealerPoints, deck, idxDeck }: CheckSessionResult) {
-  return (dispatch: Dispatch<GameSessionAction>) => {
+  return (dispatch: Dispatch<GameSessionAction>): void => {
     const allDealerPoints = dealerPoints.reduce((acc, point) => acc + point, 0);
     dispatch({
       type: GameSessionTypes.CHECK_HANDS,
@@ -131,7 +147,7 @@ export function checkSessionResult({ dealerPoints, deck, idxDeck }: CheckSession
 }
 
 export function clearSessionResult() {
-  return (dispatch: Dispatch<GameSessionAction | UserActions>) => {
+  return (dispatch: Dispatch<GameSessionAction | UserActions>): void => {
     const timerID = setTimeout(() => {
       dispatch({
         type: GameSessionTypes.CLEAR_CUR_GAME,

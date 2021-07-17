@@ -1,22 +1,21 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../redux/reducers/rootReducer';
-import { GameSessionTypes } from '../../types/gameSession';
-import { UserTypes } from '../../types/user';
-import { shuffleDeck } from '../../redux/actions/casinoActions';
 import { IconDeal } from '../icons';
 import UserDeckComponent from '../userDeckComponent';
-import './userComponent.scss';
 import { startSession } from '../../redux/actions/gameSessionActions';
+import './userComponent.scss';
 
 const UserComponent: FC = () => {
   const dispatch = useDispatch();
   const { bet } = useSelector((state: RootReducer) => state.user);
-  const { deck } = useSelector((state: RootReducer) => state.casino);
-  const { dealStatus } = useSelector((state: RootReducer) => state.gameSession);
+  const { deck, maxCount } = useSelector((state: RootReducer) => state.casino);
+  const { dealStatus, userPoints, dealerPoints } = useSelector((state: RootReducer) => state.gameSession);
 
   const onClickHandleDeal: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
-    dispatch(startSession({ bet, deck }));
+    dispatch(startSession({
+      bet, deck, maxCount, userPoints, dealerPoints,
+    }));
   }, [dispatch, bet, deck]);
 
   return (

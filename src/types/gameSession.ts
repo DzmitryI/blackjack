@@ -13,10 +13,12 @@ export enum GameSessionTypes {
   USER_LOSE = 'USER_LOSE',
   USER_TIE = 'USER_TIE',
   USER_BUST = 'USER_BUST',
+  USER_BLACK_JACK = 'USER_BLACK_JACK',
 }
 
 export enum UserStatus {
   WON = 'WON',
+  BLACK_JACK = 'BLACK_JACK',
   LOSE = 'LOSE',
   TIE = 'TIE',
   BUST = 'BUST',
@@ -83,9 +85,14 @@ interface UserBust {
   type: GameSessionTypes.USER_BUST;
 }
 
+interface UserBlackJack {
+  type: GameSessionTypes.USER_BLACK_JACK;
+}
+
 interface changeStartDealingCards {
   type: GameSessionTypes.CHANGE_START_DEALING_CARDS;
 }
 
-export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck
-| changeStartDealingCards | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon | UserLose | UserTie | UserBust;
+export type GameSessionAction = ChangeDeal | ChangeSizeBet | ChangeDealerDeck | ChangeUserDeck |
+  changeStartDealingCards | ClearDeck | IncreaseIdxDeck | CheckHands | UserWon | UserLose | UserTie | UserBust |
+  UserBlackJack;

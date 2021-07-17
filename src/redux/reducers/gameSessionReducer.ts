@@ -16,7 +16,6 @@ const initialState: InitialState = {
 };
 
 export const gameSessionReducer = (state = initialState, action: GameSessionAction): InitialState => {
-  // const { type } = action;
   switch (action.type) {
     case GameSessionTypes.CHANGE_DEAL:
       return {
@@ -54,6 +53,11 @@ export const gameSessionReducer = (state = initialState, action: GameSessionActi
       return {
         ...state,
         userWon: UserStatus.WON,
+      };
+    case GameSessionTypes.USER_BLACK_JACK:
+      return {
+        ...state,
+        userWon: UserStatus.BLACK_JACK,
       };
     case GameSessionTypes.USER_LOSE:
       return {
