@@ -1,6 +1,6 @@
 import { InitialState, UserActions, UserTypes } from '../../types/user';
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   cash: 5000,
   bet: 0,
 };
