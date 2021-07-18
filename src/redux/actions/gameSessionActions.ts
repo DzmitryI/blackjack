@@ -63,7 +63,7 @@ export function startSession({
   };
 }
 
-interface ChangeSizeBet {
+export interface ChangeSizeBet {
   chips: Chips;
   chosenBet: number;
   type?: string;
