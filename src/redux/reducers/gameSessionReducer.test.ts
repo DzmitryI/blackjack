@@ -1,4 +1,4 @@
-import { gameSessionReducer, initialState } from './gameSessionReducer';
+import { gameSessionReducer } from './gameSessionReducer';
 import {
   ChangeDeal,
   ChangeDealerDeck,
@@ -11,25 +11,38 @@ import {
   UserWon,
 } from '../../types/gameSession';
 
+const stateBefore = {
+  dealStatus: false,
+  startDealingCards: false,
+  dealerPoints: [],
+  userPoints: 0,
+  chosenBet: 1,
+  dealerDeck: [],
+  userDeck: [],
+  idxDeck: 4,
+  checkHands: false,
+  userWon: UserStatus.START,
+};
+
 describe('game session reducer', () => {
   it('CHANGE_DEAL', () => {
     const action: ChangeDeal = {
       type: GameSessionTypes.CHANGE_DEAL,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      dealStatus: !initialState.dealStatus,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      dealStatus: true,
     });
   });
 
   it('CHANGE SIZE BET', () => {
     const action: ChangeSizeBet = {
       type: GameSessionTypes.CHANGE_SIZE_BET,
-      payload: 900,
+      payload: 500,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      chosenBet: action.payload,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      chosenBet: 500,
     });
   });
 
@@ -38,10 +51,10 @@ describe('game session reducer', () => {
       type: GameSessionTypes.CHANGE_DEALER_DECK,
       payload: { value: '2', suit: 'spades', count: 2 },
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      dealerDeck: [action.payload],
-      dealerPoints: [action.payload.count],
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      dealerDeck: [{ value: '2', suit: 'spades', count: 2 }],
+      dealerPoints: [2],
     });
   });
 
@@ -50,10 +63,10 @@ describe('game session reducer', () => {
       type: GameSessionTypes.CHANGE_USER_DECK,
       payload: { value: '2', suit: 'spades', count: 2 },
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      userDeck: [action.payload],
-      userPoints: action.payload.count,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      userDeck: [{ value: '2', suit: 'spades', count: 2 }],
+      userPoints: 2,
     });
   });
 
@@ -61,9 +74,9 @@ describe('game session reducer', () => {
     const action: IncreaseIdxDeck = {
       type: GameSessionTypes.INCREASE_IDX_DECK,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      idxDeck: initialState.idxDeck + 1,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      idxDeck: 5,
     });
   });
 
@@ -71,8 +84,8 @@ describe('game session reducer', () => {
     const action: CheckHands = {
       type: GameSessionTypes.CHECK_HANDS,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       checkHands: true,
     });
   });
@@ -81,8 +94,8 @@ describe('game session reducer', () => {
     const action: UserWon = {
       type: GameSessionTypes.USER_WON,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       userWon: UserStatus.WON,
     });
   });
@@ -91,8 +104,8 @@ describe('game session reducer', () => {
     const action: UserBlackJack = {
       type: GameSessionTypes.USER_BLACK_JACK,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       userWon: UserStatus.BLACK_JACK,
     });
   });
@@ -101,8 +114,8 @@ describe('game session reducer', () => {
     const action: UserLose = {
       type: GameSessionTypes.USER_LOSE,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       userWon: UserStatus.LOSE,
     });
   });
@@ -111,8 +124,8 @@ describe('game session reducer', () => {
     const action: UserTie = {
       type: GameSessionTypes.USER_TIE,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       userWon: UserStatus.TIE,
     });
   });
@@ -121,8 +134,8 @@ describe('game session reducer', () => {
     const action: UserBust = {
       type: GameSessionTypes.USER_BUST,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
       userWon: UserStatus.BUST,
     });
   });
@@ -131,9 +144,9 @@ describe('game session reducer', () => {
     const action: ChangeStartDealingCards = {
       type: GameSessionTypes.CHANGE_START_DEALING_CARDS,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
-      startDealingCards: !initialState.startDealingCards,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
+      startDealingCards: true,
     });
   });
 
@@ -141,8 +154,8 @@ describe('game session reducer', () => {
     const action: ClearDeck = {
       type: GameSessionTypes.CLEAR_CUR_GAME,
     };
-    expect(gameSessionReducer(initialState, action)).toEqual({
-      ...initialState,
+    expect(gameSessionReducer(stateBefore, action)).toEqual({
+      ...stateBefore,
     });
   });
 });
